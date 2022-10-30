@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UV_Eats_Client.Client"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="InicioSesion" Height="450" Width="800"
         
@@ -13,35 +14,36 @@
         
         Background="Transparent"
         AllowsTransparency="True">
-    
-    <Grid>
-        <Border Background="#2A0993"
-                CornerRadius="30" Margin="3,0,-3,0"  >
-            
-        </Border>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="25"/>
-                    <ColumnDefinition Width="25"/>
-                    <ColumnDefinition Width="5"/>
-                </Grid.ColumnDefinitions>
-                
-                <TextBlock Text="Welcome"
+
+    <Grid x:Name="Main">
+
+
+
+        <Border Background="#2E0640 "
+                CornerRadius="30"   >
+
+            <Grid x:Name="Botonera">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Welcome"
                            FontSize="11"
                            Foreground="White"
                            FontFamily="Tahoma"
-                           Grid.Column="0"
+                           
                            VerticalAlignment="Center"
                            Margin="20,0,0,0"/>
 
-                <Button
+                    <Button
                     x:Name="btnMinimizar"
                     Content="-"
                     FontSize="19"
@@ -51,7 +53,7 @@
                     BorderThickness="0"
                     Cursor="Hand"
                     Click="btnMinimizar_Click"/>
-                <Button
+                    <Button
                     x:Name="btnCerrar"
                     Content="x"
                     FontSize="12"
@@ -61,64 +63,92 @@
                     BorderThickness="0"
                     Cursor="Hand"
                     Click="btnCerrar_Click"/>
+                </Grid>
+
+
+
             </Grid>
-            
-            <StackPanel Height="400"
-                        Width="350"
-                        HorizontalAlignment="Right"
-                        Orientation="Vertical"
-                        Margin="10"
-                        
-                        >
-                 
-            </StackPanel>
-        </Grid>
-        <Grid Name="Imagen" Height="430" Width="400" HorizontalAlignment="Right" >
-            <Border Background="White"
-                CornerRadius="10"
-                Margin="20,130,20,35">
-            </Border>
-            
-            <StackPanel Width="350"
+
+
+        </Border>
+
+        <Grid   Name="Formulario"  Margin="0,366,143,32" HorizontalAlignment="Right" Width="30" >
+
+            <Grid Background="#FFF9FDFF" Margin="-369,-335,-83,0" >
+                <StackPanel Width="350"
                         Margin="22,0,22,0"
                         Orientation="Vertical">
-                <Image Source="/Client/Resources/LogoUV.PNG"
+                    <Image Source="/Client/Resources/LogoUV.PNG"
                        Width="100"
                        Height="100"/>
-                <TextBlock Text="UNIVERSIDAD VERACRUZANA"
-                           FontSize="12"
-                           Foreground="White"
-                           HorizontalAlignment="Center"/>
-                
-                <TextBlock Text="Inicie sesion con su cuenta UV"
-                           FontSize="17"
+                    <TextBlock Text="Bienvenido"
+                           FontSize="22"
                            Foreground="Black"
+                           HorizontalAlignment="Center"/>
+
+                    <TextBlock Text="Inicie sesion con su cuenta UV"
+                           FontSize="14"
+                           Foreground="#1D0726"
                            FontFamily="Tahoma"
                            HorizontalAlignment="Center"
-                           Margin="0,20,0,0"/>
+                           Margin="0,0,0,10"/>
+                    <TextBox
+                            x:Name="NameTextBox"
+                            materialDesign:HintAssist.Hint="Email" Width="310"
+                            >
+                        <TextBox.Text>
+                            <Binding
+                            Path="Name"
+                            UpdateSourceTrigger="PropertyChanged">
 
-                <TextBlock Text="Matricula:"
-                           FontSize="12"
-                           Foreground="Black"
-                           FontFamily="Tahoma"
-                           HorizontalAlignment="Left"
-                           Margin="20,20,0,0"/>
-                <TextBox x:Name="txtMatricula"
-                         FontSize="16"
-                         Foreground="Black"
-                         FontFamily="Tahoma"
-                         Margin="20,5,20,0"
-                         
-                         CaretBrush="AliceBlue"
-                         BorderThickness="0,0,0,1"
-                         VerticalContentAlignment="Center">
-                         
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <PasswordBox
+                         x:Name="PasswordBox"
+                         materialDesign:HintAssist.Hint="Password"
+                         materialDesign:TextFieldAssist.HasClearButton="True"
+                        Margin="0,0,0,10" Width="310"
+                             />
 
-                </TextBox>
+                    <Button x:Name="btnRecuperar" Margin="170,10,20,0" Height="26" Width="176"
+                            Content="Recuperar Contrasenia"
+                            Foreground="#1D0726"
+                            Background="Transparent"
+                            BorderBrush="Transparent" HorizontalAlignment="Center" FontSize="12" Cursor="Hand"/>
+                    <Button x:Name="btnSiguiente" Margin="0,20,0,0" Height="32" Width="313"
+                            Content="Siguiente"
+                            Foreground="White"
+                            Background="#1D0726"
+                            BorderBrush="Transparent"/>
+                    <Button x:Name="btnNuevoUsuario" Margin="00,10,0,0" Height="26" Width="98"
+                            Content="Registrate"
+                            Foreground="#1D0726"
+                            Background="Transparent"
+                            BorderBrush="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Cursor="Hand"/>
 
 
 
-            </StackPanel>
+                </StackPanel>
+
+                <CheckBox
+  IsChecked="True"
+  Content="Recordar"
+  Style="{StaticResource MaterialDesignAccentCheckBox}" Margin="84,230,325,134" Background="#FF2E0640" />
+                
+                <Grid Margin="-222,28,507,303" >
+                    
+                </Grid>
+            </Grid>
+
+            
+
+
         </Grid>
+
+
+<Label Content="UV Eats" Margin="28,64,547,290" FontSize="50" Foreground="White" FontFamily="Segoe UI Black" FontWeight="Normal" FontStyle="Normal" />
+        <Image Source="/Client/Resources/HalconCirculo.png" Margin="16,136,555,82" />
     </Grid>
+    
 </Window>

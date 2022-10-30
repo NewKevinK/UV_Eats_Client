@@ -39,5 +39,20 @@ namespace UV_Eats_Client.Client
         {
             Application.Current.Shutdown();
         }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButtonBase_OnClickAce(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
