@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:UV_Eats_Client"
              
              
-             StartupUri="Client\PantallaInicial.xaml">
+             StartupUri="Client\InicioSesion.xaml">
     
             
     <Application.Resources>

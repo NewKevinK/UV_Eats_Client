@@ -9,6 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
+using UV_Eats_Client.Logic;
 
 namespace UV_Eats_Client.Client
 {
@@ -17,6 +19,7 @@ namespace UV_Eats_Client.Client
     /// </summary>
     public partial class InicioSesion : Window
     {
+        API API = new API();
         public InicioSesion()
         {
             InitializeComponent();
@@ -54,5 +57,31 @@ namespace UV_Eats_Client.Client
         {
 
         }
+
+        private void btnSiguiente_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario usuario = new Usuario
+            {
+                email = EmailBox.Text,
+                password = PasswordBox.Password
+                
+            };
+
+            string json = JsonConvert.SerializeObject(usuario);
+            string body = @"{ ""email"":""moncayok0@gmail.com"", 
+" + "\n" +
+@"""password"":""kevin1""
+" + "\n" +
+@"}";
+            dynamic respuesta = API.PostAsync("http://localhost:1999/api/auth/", body);
+            MessageBox.Show("El mensaje es: "+respuesta.ToString());
+            //MessageBox.Show(respuesta.ToString());
+        }
+    }
+
+    public class Usuario
+    {
+        public string email { get; set; }
+        public string password { get; set; }
     }
 }

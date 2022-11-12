@@ -93,7 +93,7 @@
                            HorizontalAlignment="Center"
                            Margin="0,0,0,10"/>
                     <TextBox
-                            x:Name="NameTextBox"
+                            x:Name="EmailBox"
                             materialDesign:HintAssist.Hint="Email" Width="310"
                             >
                         <TextBox.Text>
@@ -120,7 +120,7 @@
                             Content="Siguiente"
                             Foreground="White"
                             Background="#1D0726"
-                            BorderBrush="Transparent"/>
+                            BorderBrush="Transparent" Click="btnSiguiente_Click"/>
                     <Button x:Name="btnNuevoUsuario" Margin="00,10,0,0" Height="26" Width="98"
                             Content="Registrate"
                             Foreground="#1D0726"
