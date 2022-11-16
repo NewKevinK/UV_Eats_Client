@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.Windows;
+using UV_Eats_Client.Models;
+using RestSharp.Authenticators;
 
 namespace UV_Eats_Client.Logic
 {
@@ -27,7 +29,7 @@ namespace UV_Eats_Client.Logic
                 }
 
                 RestResponse respo  = await client.PostAsync(request);
-//dynamic dat = JsonConvert.DeserializeObject<MensajeLogin>(respo.Content);
+                //dynamic dat = JsonConvert.DeserializeObject<MensajeLogin>(respo.Content);
 
 
                 //RestResponse response =  client.Execute(request);
@@ -35,11 +37,12 @@ namespace UV_Eats_Client.Logic
 
 
                 //IRestResponse response = client.Execute(request);
+                Auth auth = JsonConvert.DeserializeObject<Auth>(respo.Content);
                 Movie m = JsonConvert.DeserializeObject<Movie>(respo.Content);
                 string mess = m.message;
                 dynamic dinames = m.message;
                 //MessageBox.Show(mess);
-                return dinames;
+                return auth;
 
             }
             catch (Exception e)
@@ -48,6 +51,120 @@ namespace UV_Eats_Client.Logic
                 return null;
             }
         }
+
+        public dynamic PostNoToken(string url, string body, string autorizacion = null)
+        {
+            try
+            {
+                var client = new RestClient(url);
+                var request = new RestRequest();
+                request.AddHeader("Content-Type", "application/json");
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+
+                if (autorizacion != null)
+                {
+
+                }
+
+                RestResponse respo =  client.Post(request);
+                //Auth auth = JsonConvert.DeserializeObject<Auth>(respo.Content);
+                
+                return respo;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
+            
+        }
+
+        public dynamic PostToken(string url, string body, string autorizacion = null)
+        {
+            try
+            {
+                var client = new RestClient(url);
+                //var authenticator = new JwtAuthenticator(autorizacion);
+                var request = new RestRequest();
+                request.AddHeader("Content-Type", "application/json");
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+
+                if (autorizacion != null)
+                {
+
+                }
+
+                RestResponse respo = client.Post(request);
+                
+                return respo;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
+
+        }
+
+        public dynamic GetToken(string url, string token)
+        {
+            try
+            {
+                var client = new RestClient(url);
+                var request = new RestRequest();
+                request.AddHeader("Authorization", token);
+                RestResponse response = client.Execute(request);
+
+                return response;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public dynamic DeleteToken(string url, string token)
+        {
+            try
+            {
+                var client = new RestClient(url);
+                var request = new RestRequest();
+                request.AddHeader("Authorization", token);
+                RestResponse response = client.Execute(request);
+
+                return response;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
+
+        public dynamic PatchToken(string url, string body, string token = null)
+        {
+            try
+            {
+                var client = new RestClient(url);
+                var request = new RestRequest();
+                request.AddHeader("Authorization", token);
+                //request.AddHeader("Content-Type", "application/json");
+                request.AddParameter("application/json", body, ParameterType.RequestBody);
+
+                
+
+                RestResponse respo = client.Post(request);
+
+                return respo;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return null;
+            }
+
+        }
+
+
 
         private class Movie
         {

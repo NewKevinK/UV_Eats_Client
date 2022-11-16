@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:WPFCarouselControl="clr-namespace:UV_Eats_Client.Logic"
         xmlns:local="clr-namespace:UV_Eats_Client.Client" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="UV Eats" Height="450" Width="800">
@@ -11,24 +12,58 @@
     </Window.Resources>
     <Grid Background="#2E0640">
         <Label Content="UV Eats" Margin="122,18,0,0" FontSize="50" Foreground="White" FontFamily="Segoe UI Black" FontWeight="Normal" FontStyle="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Left" Height="80" />
-        <Image Source="/Client/Resources/HalconCirculo.png" Margin="5,8,681,327" />
-        <materialDesign:PackIcon Kind="Cart" Margin="620,0,0,0" Height="78" Width="54" RenderTransformOrigin="-0.831,0.564" />
-        <materialDesign:PackIcon Kind="Logout" Margin="720,8,0,0" Height="62" Width="80" />
-        <Button Content="Button" HorizontalAlignment="Left" Margin="620,15,0,0" 
+        <Image Source="/Client/Resources/HalconCirculo.png" Margin="5,-1,665,311" />
+
+
+        <Button x:Name="btnShowCar"  HorizontalAlignment="Left" Margin="586,28,0,0" 
                 VerticalAlignment="Top" Background="White"  
-                Click="Button_Click" Height="43" Width="52"
-                 >
+                Click="btnShowCarClick" Height="50" Width="50" Cursor="Hand"   >
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
                         <Ellipse Fill="White"/>
                         <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Image Height="54" Stretch="Fill" Width="50" Source="/Client/Resources/cart.png" />
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
+
         </Button>
 
-        <TabControl Margin="10,103,10,10" BorderBrush="Gainsboro">
+        <Button x:Name="btnShowProfile"  HorizontalAlignment="Left" Margin="656,28,0,0" 
+                VerticalAlignment="Top" Background="White"  
+                Click="btnShowProfileClick" Height="50" Width="50" Cursor="Hand"   >
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="White"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Image Height="54" Stretch="Fill" Width="50" Source="/Client/Resources/account.png" />
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+
+        <Button x:Name="btnLogout"  HorizontalAlignment="Left" Margin="728,28,0,0" 
+                VerticalAlignment="Top" Background="White"  
+                Click="btnLogoutClick" Height="50" Width="50" Cursor="Hand"   >
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="White"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Image Height="54" Stretch="Fill" Width="50" Source="/Client/Resources/logout.png" />
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+
+        </Button>
+
+
+
+
+        <TabControl Margin="10,90,10,0" BorderBrush="Gainsboro">
             <TabControl.Resources>
                 <Style TargetType="TabItem">
                     <Setter Property="Template">
@@ -54,12 +89,104 @@
                     </Setter>
                 </Style>
             </TabControl.Resources>
-            <TabItem Header="Home">
+            <TabItem Header="Menu">
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="26" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="17" />
+                    </Grid.ColumnDefinitions>
+
+                    <!--#region Botones Izq - Der -->
+
+                    <!--      <Button Grid.Column="0" Background="Transparent" BorderBrush="Transparent" Name="_buttonLeftArrow" Click="_buttonLeftArrow_Click">
+                        <Image Height="54" Stretch="Fill" Width="50"  Source="/Client/Resources/user.png" />
+                    </Button>
+                    <Button Grid.Column="2" Background="Transparent" BorderBrush="Transparent" Name="_buttonRightArrow" Click="_buttonRightArrow_Click">
+                        <Image Height="54" Stretch="Fill" Width="50"  Source="/Client/Resources/email.png" />
+
+                    </Button>  -->
+
+                    <WPFCarouselControl:CarouselControl
+                                            x:Name="_carouselDABMenu"
+                                            ItemsSource="{Binding MenuDAB}"
+                                            SelectedItem="{Binding SelectedMenuDAB,Mode=TwoWay}"
+                                            ShowRotation="True"
+                                            TiltInDegrees="0"
+                                            AutoSizeToParent="true"
+                                            RotationSpeed="250" 
+                                            VerticalOrientation="False"
+                                            VerticalAlignment="Center" Height="0" Margin="0,0,0,0" Grid.Column="1">
+                        <WPFCarouselControl:CarouselControl.Style>
+                            <Style TargetType="WPFCarouselControl:CarouselControl">
+                                <Setter Property="CarouselItemTemplate" >
+                                    <Setter.Value>
+                                        <ControlTemplate>
+                                            <Border BorderThickness="2" BorderBrush="Black" Background="White" Width="450" Height="230">
+                                                <Grid Background="Transparent" Margin="5">
+                                                    <!--#region Datos Mostrados-->
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="40"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="32"/>
+                                                        <RowDefinition Height="32"/>
+                                                        <RowDefinition Height="32"/>
+                                                        <RowDefinition Height="32"/>
+                                                        <RowDefinition Height="32"/>
+
+                                                        <RowDefinition Height="32"/>
+                                                        <RowDefinition Height="32"/>
+                                                    </Grid.RowDefinitions>
+
+                                                    <!--#region Iconos-->
+
+                                                    <!--      <Image Grid.Row="0" Grid.Column="0" Source="/Cliente/book.png" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                <Image Grid.Row="1" Grid.Column="0" Source="/Cliente/clock-nine.png" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                <Image Grid.Row="2" Grid.Column="0" Source="/Cliente/graduation-cap.png" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                <Label Grid.Row="3" Grid.Column="0" Content="NRC" Foreground="Black" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                <Image Grid.Row="4" Grid.Column="0" Source="/Cliente/building.png" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    -->
+                                                    <!--#endregion-->
+
+                                                    <!--#region Datos-->
+
+                                                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding nombre}"  TextWrapping="Wrap" VerticalAlignment="Center" FontSize="13" FontWeight="Bold" />
+                                                    <Label Grid.Row="1" Grid.Column="1" Content="{Binding descripcion}" VerticalAlignment="Center"/>
+
+                                                    <!--#endregion-->
+
+                                                    <!--endregion-->
+                                                </Grid>
+                                                <!--#endregion-->
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </WPFCarouselControl:CarouselControl.Style>
+                    </WPFCarouselControl:CarouselControl>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Productos" >
+
+            </TabItem>
+
+
+            <TabItem Header="Pedidos" >
+                
+                //
+                
+            </TabItem>
+
+
+            <TabItem Header="Sobre nosotros">
                 <Label Content="Content goes here..." />
             </TabItem>
-            <TabItem Header="Menu" />
-            <TabItem Header="Pedidos" />
-            <TabItem Header="Sobre nosotros" />
         </TabControl>
     </Grid>
 </Window>

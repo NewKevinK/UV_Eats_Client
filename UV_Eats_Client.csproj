@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Client\Resources\account.png" />
+    <None Remove="Client\Resources\cart.png" />
+    <None Remove="Client\Resources\dislike.png" />
     <None Remove="Client\Resources\HalconCirculo.png" />
+    <None Remove="Client\Resources\logout.png" />
     <None Remove="Client\Resources\LogoUV.png" />
   </ItemGroup>
 
@@ -20,7 +24,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Client\Resources\account.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Client\Resources\cart.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Client\Resources\dislike.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Client\Resources\HalconCirculo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Client\Resources\logout.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Client\Resources\LogoUV.png" />
@@ -39,10 +55,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>
