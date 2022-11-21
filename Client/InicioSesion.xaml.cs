@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
 using UV_Eats_Client.Logic;
+using UV_Eats_Client.Models;
 
 namespace UV_Eats_Client.Client
 {
@@ -67,26 +68,48 @@ namespace UV_Eats_Client.Client
                 
             };
 
-            string json = JsonConvert.SerializeObject(usuario);
-            string body = @"{ ""email"":""moncayok0@gmail.com"", 
+
+
+            
+            string objectU = JsonConvert.SerializeObject(usuario);
+            string json = @"{ ""email"":""moncayok0@gmail.com"", 
 " + "\n" +
 @"""password"":""kevin1""
 " + "\n" +
 @"}";
-            dynamic respuesta = API.PostAsync("http://localhost:1999/api/auth/", body);
-            MessageBox.Show("El mensaje es: "+respuesta.ToString());
-            //MessageBox.Show(respuesta.ToString());
+            try
+            {
+                dynamic respuesta = API.PostNoToken("http://localhost:1999/api/auth/", json);
+                Auth auth = JsonConvert.DeserializeObject<Auth>(respuesta.Content);
+
+                if (auth.message == "authenticated user")
+                {
+                    PantallaInicial pantallaInicial = new PantallaInicial(auth);
+                    pantallaInicial.Show();
+                    //Application.Current.Shutdown();
+                    this.Hide();
+                }
+                //MessageBox.Show("El mensaje es: " + auth.message);
+                //MessageBox.Show(respuesta.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
+<<<<<<< HEAD
 
         private void btnNuevoUsuario_Click(object sender, RoutedEventArgs e)
         {
 
         }
     }
+=======
+>>>>>>> b3d06716ec8c24fd7304e7ab9dc9e7f5dab0eb58
 
-    public class Usuario
-    {
-        public string email { get; set; }
-        public string password { get; set; }
+        
     }
+
+    
 }
