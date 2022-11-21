@@ -125,7 +125,8 @@
                             Content="Registrate"
                             Foreground="#1D0726"
                             Background="Transparent"
-                            BorderBrush="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Cursor="Hand"/>
+                            BorderBrush="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Cursor="Hand" Click="btnNuevoUsuario_Click"/>
+                    <materialDesign:Badged Content="Badged"/>
 
 
 

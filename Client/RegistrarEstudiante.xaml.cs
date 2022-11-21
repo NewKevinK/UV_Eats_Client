@@ -21,5 +21,26 @@ namespace UV_Eats_Client.Client
         {
             InitializeComponent();
         }
+
+        private void btnMinimizar_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnNuevoUsuario_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

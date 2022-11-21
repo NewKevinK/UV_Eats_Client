@@ -77,6 +77,11 @@ namespace UV_Eats_Client.Client
             MessageBox.Show("El mensaje es: "+respuesta.ToString());
             //MessageBox.Show(respuesta.ToString());
         }
+
+        private void btnNuevoUsuario_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
     public class Usuario
