@@ -98,15 +98,12 @@ namespace UV_Eats_Client.Client
             }
             
         }
-<<<<<<< HEAD
 
         private void btnNuevoUsuario_Click(object sender, RoutedEventArgs e)
         {
 
         }
     }
-=======
->>>>>>> b3d06716ec8c24fd7304e7ab9dc9e7f5dab0eb58
 
         
     }

@@ -14,7 +14,7 @@
         Background="Transparent"
         AllowsTransparency="True">
 
-    <Grid x:Name="Main">
+    <Grid x:Name="SignIn">
 
 
 
@@ -73,7 +73,7 @@
 
         <Grid   Name="Formulario"  Margin="0,366,143,32" HorizontalAlignment="Right" Width="30" >
 
-            <Grid Background="#FFF9FDFF" Margin="-369,-335,-83,10" >
+            <Grid Background="#FFF9FDFF" Margin="-377,-295,-75,60" >
                 <StackPanel Width="350"
                         Margin="25,50,25,0"
                         Orientation="Vertical">
@@ -114,29 +114,13 @@
                             </Binding>
                         </TextBox.Text>
                     </TextBox>
-                    <TextBox
-                            x:Name="PhoneBox"
-                            materialDesign:HintAssist.Hint="Phone" Width="310" BorderBrush="#FFABADB3"
-                        >
-                        <TextBox.Text>
-                            <Binding
-                                Path="Phone"
-                                UpdateSourceTrigger="PropertyChanged">
-                            </Binding>
-                        </TextBox.Text>
-                    </TextBox>
                     <PasswordBox
                          x:Name="PasswordBox"
                          materialDesign:HintAssist.Hint="Password"
                          materialDesign:TextFieldAssist.HasClearButton="True"
                         Width="310"
                              />
-                    <PasswordBox
-                         x:Name="RepeatPasswordBox"
-                         materialDesign:HintAssist.Hint="Repeat Password"
-                         materialDesign:TextFieldAssist.HasClearButton="True"
-                        Margin="0,0,0,10" Width="310" BorderBrush="#FFABADB3"
-                             />
+
                     <Button x:Name="btnCancelar" Height="32" Width="314"
                             Content="Cancelar"
                             Foreground="White"
@@ -146,7 +130,7 @@
                             Content="Registrarse"
                             Foreground="#1D0726"
                             Background="Transparent"
-                            BorderBrush="Transparent" FontSize="12" Cursor="Hand" VerticalAlignment="Bottom" Click="btnNuevoUsuario_Click"/>
+                            BorderBrush="White" FontSize="12" Cursor="Hand" VerticalAlignment="Bottom" Click="btnNuevoUsuario_Click"/>
                 </StackPanel>
             </Grid>
         </Grid>
