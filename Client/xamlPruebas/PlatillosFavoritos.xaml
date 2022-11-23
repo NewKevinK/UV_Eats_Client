@@ -1,0 +1,94 @@
+﻿<Window x:Class="UV_Eats_Client.Client.xamlPruebas.PlatillosFavoritos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UV_Eats_Client.Client.xamlPruebas"
+        mc:Ignorable="d"
+        Title="PlatillosFavoritos" Height="450" Width="800">
+    <Grid Background="#FF511158">
+        <Button x:Name="btnShowProfile"  HorizontalAlignment="Left" Margin="656,28,0,0" 
+                VerticalAlignment="Top" Background="White"  
+                Click="btnShowProfileClick" Height="50" Width="50" Cursor="Hand"   >
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Grid>
+                        <Ellipse Fill="White"/>
+                        <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Image Height="54" Stretch="Fill" Width="50" Source="/Client/Resources/account.png" />
+                    </Grid>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <TabControl x:Name="Tabcontrol1" Margin="10,90,10,0" BorderBrush="Gainsboro">
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TabItem">
+                                <Border Name="Border" BorderThickness="1,1,1,0" BorderBrush="Gainsboro" CornerRadius="4,4,0,0" Margin="2,0">
+                                    <ContentPresenter x:Name="ContentSite"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center"
+                                        ContentSource="Header"
+                                        Margin="10,2"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected" Value="True">
+                                        <Setter TargetName="Border" Property="Background" Value="LightSkyBlue" />
+                                    </Trigger>
+                                    <Trigger Property="IsSelected" Value="False">
+                                        <Setter TargetName="Border" Property="Background" Value="GhostWhite" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
+            <TabItem Header="menu"></TabItem>
+            <TabItem Header="Productos" >
+            </TabItem>
+            <TabItem Header="Pedidos" >
+            </TabItem>
+            <TabItem Header="Sobre nosotros">
+                <Label Content="Content goes here..." />
+            </TabItem>
+            <!--#Este tabItem se abrira con el boton del carrito, se encuentra colapsado-->
+
+            <TabItem x:Name="tabCarrito" Header="Carrito" Visibility="Collapsed">
+                <Grid Margin="0,10,0,0">
+                    <Grid.Background>
+                        <SolidColorBrush Color="#FF761F7B" Opacity="0.52"/>
+                    </Grid.Background>
+                    <Grid>
+                        <TextBlock x:Name="labeltitulo" Text="Carrito de compra" FontSize="22" Foreground="White" Margin="10,-1,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    </Grid>
+                    <Grid Margin="547,37,29,43" Background="#FF631888" Height="233">
+                        <Label Content="Subtotal: $" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="92"/>
+                        <Button Content="Proceder a pago" HorizontalAlignment="Center" Margin="0,65,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1"/>
+                        <Button Content="Borrar Carrito" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="White" Background="#FFE52CF9"/>
+                        <Label Content="0" HorizontalAlignment="Left" Margin="93,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="80"/>
+                    </Grid>
+                    <ScrollViewer Margin="12,37,256,10">
+                        <StackPanel>
+                            <WrapPanel x:Name="warpanle_prueb" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Informacion Perfil">
+                <Grid>
+                    <Grid>
+                        <TextBlock x:Name="labelTituloFav" Text="Platillos Favoritos" FontSize="36" Foreground="White" Margin="10,-1,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="44" Width="295"/>
+                    </Grid>
+                    <ScrollViewer Margin="12,66,39,10">
+                        <StackPanel>
+                            <WrapPanel x:Name="warpanle_platillosFav" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -4,8 +4,8 @@
              xmlns:local="clr-namespace:UV_Eats_Client"
              
              
-             StartupUri="Client\InicioSesion.xaml">
-    
+             StartupUri="Client\xamlPruebas\VentanaCarritoPrueba.xaml">
+         <!--StartupUri="Client\xamlPruebas\PlatillosFavoritos.xaml", VentanaCarritoPrueba-->
             
     <Application.Resources>
         <ResourceDictionary>
