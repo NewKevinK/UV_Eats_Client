@@ -31,10 +31,10 @@ namespace UV_Eats_Client.Client
 
             TarjetaProductoCarrito TarjetaProductoTemp;
 
-            for(int i=0;i<3;i++)
+            for (int i = 0; i < 3; i++)
                 listp.Add(TarjetaProductoTemp = new TarjetaProductoCarrito());
- 
-            for(int i= 0; i < listp.Count; i++)
+
+            for (int i = 0; i < listp.Count; i++)
                 warpanle_prueb.Children.Add(listp[i]);
 
 

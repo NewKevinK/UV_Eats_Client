@@ -15,6 +15,8 @@ using UV_Eats_Client.Logic;
 
 using System.Windows.Threading;
 using Menu = UV_Eats_Client.Models.Menu;
+using ControlzEx.Controls;
+using UV_Eats_Client.Client.UserControls;
 
 namespace UV_Eats_Client.Client
 {
@@ -39,15 +41,26 @@ namespace UV_Eats_Client.Client
             _carouselDABMenu.SelectionChanged += _carouselDABEE_SelectionChanged;
         }
 
-        
-
 
         private void btnShowCarClick(object sender, RoutedEventArgs e)
         {
             //dynamic respuesta = API.GetToken("http://localhost:1999/api/Menu/", token);
             //List<Menu> menu = JsonConvert.DeserializeObject<List<Menu>>(respuesta.Content);
 
+            TarjetaProductoCarrito tarjetaProduct1 = new TarjetaProductoCarrito();
+            TarjetaProductoCarrito tarjetaProduct2 = new TarjetaProductoCarrito();
+            TarjetaProductoCarrito tarjetaProduct3 = new TarjetaProductoCarrito();
+            TarjetaProductoCarrito tarjetaProduct4 = new TarjetaProductoCarrito();
 
+            List<TarjetaProductoCarrito> listp = new List<TarjetaProductoCarrito>();
+
+            TarjetaProductoCarrito TarjetaProductoTemp;
+
+            for (int i = 0; i < 3; i++)
+                listp.Add(TarjetaProductoTemp = new TarjetaProductoCarrito());
+
+            for (int i = 0; i < listp.Count; i++)
+                warpanle_prueb.Children.Add(listp[i]);
             Producto producto = new Producto
             {
                 nombre = "test",
@@ -58,8 +71,8 @@ namespace UV_Eats_Client.Client
             };
             //string objectU = JsonConvert.SerializeObject(producto);
             //dynamic respu = API.PatchToken("http://localhost:1999/api/producto/", objectU, token );
-           
-            
+
+            tabControManager.SelectedIndex = 4;
         }
 
         public string TokenMenu()
@@ -94,6 +107,23 @@ namespace UV_Eats_Client.Client
         private void btnShowProfileClick(object sender, RoutedEventArgs e)
         {
             //Mostrar perfil
+
+            TarjetaPlatilloFavorito tarjetaProduct1 = new TarjetaPlatilloFavorito();
+            TarjetaPlatilloFavorito tarjetaProduct2 = new TarjetaPlatilloFavorito();
+            TarjetaPlatilloFavorito tarjetaProduct3 = new TarjetaPlatilloFavorito();
+            TarjetaPlatilloFavorito tarjetaProduct4 = new TarjetaPlatilloFavorito();
+
+            List<TarjetaPlatilloFavorito> listp = new List<TarjetaPlatilloFavorito>();
+
+            TarjetaPlatilloFavorito TarjetaProductoTemp;
+
+            for (int i = 0; i < 3; i++)
+                listp.Add(TarjetaProductoTemp = new TarjetaPlatilloFavorito());
+
+            for (int i = 0; i < listp.Count; i++)
+                warpanle_platillosFav.Children.Add(listp[i]);
+
+            tabControManager.SelectedIndex = 5;
         }
 
         private void btnLogoutClick(object sender, RoutedEventArgs e)
