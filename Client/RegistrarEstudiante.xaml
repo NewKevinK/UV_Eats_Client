@@ -16,8 +16,6 @@
 
     <Grid x:Name="SignIn">
 
-
-
         <Border Background="#2E0640 "
                 CornerRadius="30"   >
 

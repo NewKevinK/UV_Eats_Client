@@ -3,10 +3,120 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"       
         xmlns:local="clr-namespace:UV_Eats_Client.Client"
         mc:Ignorable="d"
-        Title="RecuperarContrasenia" Height="450" Width="800">
-    <Grid>
+        Title="RecuperarContrasenia" Height="450" Width="800"
         
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        
+        Background="Transparent"
+        AllowsTransparency="True">
+
+    <Grid x:Name="RecuperarContrasenia">
+
+        <Border Background="#2E0640 "
+                CornerRadius="30"   >
+
+            <Grid x:Name="Botonera">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="25"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Recuperar contraseña"
+                           FontSize="11"
+                           Foreground="White"
+                           FontFamily="Tahoma"
+                           
+                           VerticalAlignment="Center"
+                           Margin="20,0,0,0"/>
+
+                    <Button
+                    x:Name="btnMinimizar"
+                    Content="-"
+                    FontSize="19"
+                    Foreground="White"
+                    Background="Black"
+                    Grid.Column="1"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Click="btnMinimizar_Click" Height="32" VerticalAlignment="Top"/>
+                    
+                    <Button
+                    x:Name="btnCerrar"
+                    Content="x"
+                    FontSize="12"
+                    Foreground="White"
+                    Background="Black"
+                    Grid.Column="2"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Click="btnCerrar_Click" Height="32" VerticalAlignment="Top"/>
+                </Grid>
+
+            </Grid>
+
+        </Border>
+
+        <Grid   Name="Formulario"  Margin="0,366,143,32" HorizontalAlignment="Right" Width="30" >
+
+            <Grid Background="#FFF9FDFF" Margin="-377,-295,-75,60" >
+                <StackPanel Width="350"
+                        Margin="25,50,25,0"
+                        Orientation="Vertical">
+                    <TextBlock
+                           FontSize="22"
+                           Foreground="Black"
+                           HorizontalAlignment="Center" VerticalAlignment="Stretch"><Run Language="es-mx" Text="Recuperar contraseña"/></TextBlock>
+                    <TextBox
+                            x:Name="EmailBox"
+                            materialDesign:HintAssist.Hint="Email" Width="310" BorderBrush="#FFABADB3"
+                        >
+                        <TextBox.Text>
+                            <Binding
+                                Path="Email"
+                                UpdateSourceTrigger="PropertyChanged">
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                    <PasswordBox
+                         x:Name="PasswordBox"
+                         materialDesign:HintAssist.Hint="Password"
+                         materialDesign:TextFieldAssist.HasClearButton="True"
+                        Width="310" BorderBrush="#FFABADB3"
+                             />
+                    <PasswordBox
+                         x:Name="PasswordRepeatBox"
+                         materialDesign:HintAssist.Hint="Repeat Password"
+                         materialDesign:TextFieldAssist.HasClearButton="True"
+                        Width="310" BorderBrush="#FFABADB3"
+                             />
+
+                    <Button x:Name="btnCancelar" Height="32" Width="314"
+                            Content="Cancelar"
+                            Foreground="White"
+                            Background="#1D0726"
+                            BorderBrush="Transparent" Click="btnCerrar_Click" Cursor="Hand"/>
+                    <Button x:Name="btnNuevaContrasenia" Height="32" Width="314"
+                            Content="Guardar contraseña"
+                            Foreground="#1D0726"
+                            Background="Transparent"
+                            BorderBrush="White" FontSize="12" Cursor="Hand" VerticalAlignment="Bottom" Click="btnNuevaContrasenia_Click"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <Label Content="UV Eats" Margin="28,64,547,290" FontSize="50" Foreground="White" FontFamily="Segoe UI Black" FontWeight="Normal" FontStyle="Normal" />
+        <Image Source="/Client/Resources/HalconCirculo.png" Margin="16,136,555,82" />
     </Grid>
 </Window>
+
