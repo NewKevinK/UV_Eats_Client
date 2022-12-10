@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="UV_Eats_Client.Client.UserControls.TarjetaProductosPedidos"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UV_Eats_Client.Client.UserControls"
+             mc:Ignorable="d" Height="80" Width="310" >
+    <Grid Margin="5,5,5,5">
+        <Grid.Background>
+            <SolidColorBrush Color="#FF781A96" Opacity="0.5"/>
+        </Grid.Background>
+        <Image Margin="5,10,233,14" Source="/Client/Resources/cart.png"/>
+        <Label Content="Orden de empanadas" Margin="82,10,0,39" Foreground="#FFFFF6F6" FontSize="9" HorizontalAlignment="Left" Width="149"/>
+        <Label Content="Orden de 3 empanadas ya sean de pollo, papa o frijol " Margin="79,33,0,10" Foreground="White" HorizontalAlignment="Left" Width="119" FontSize="9"/>
+        <Button x:Name="btProductoMenu" Content="a" Margin="236,24,6,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Height="18" FontSize="6" Cursor="Hand"/>
+    </Grid>
+</UserControl>

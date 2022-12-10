@@ -15,9 +15,9 @@ namespace UV_Eats_Client.Client
     /// <summary>
     /// Lógica de interacción para RecuperarContrasenia.xaml
     /// </summary>
-    public partial class RecuperarContrasenia : Window
+    public partial class RegistrarProducto : Window
     {
-        public RecuperarContrasenia()
+        public RegistrarProducto()
         {
             InitializeComponent();
         }

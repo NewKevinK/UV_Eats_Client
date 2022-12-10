@@ -125,7 +125,16 @@
                             Content="Registrate"
                             Foreground="#1D0726"
                             Background="Transparent"
-                            BorderBrush="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Cursor="Hand" Click="btnNuevoUsuario_Click"/>
+                            BorderBrush="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Cursor="Hand" Click="btnNuevoUsuario_Click" RenderTransformOrigin="0.5,0.5">
+                        <Button.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="0.15"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Button.RenderTransform>
+                    </Button>
                     <materialDesign:Badged Content="Badged"/>
 
 

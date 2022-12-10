@@ -9,17 +9,29 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UV_Eats_Client.Client.UserControls;
 
 namespace UV_Eats_Client.Client
 {
     /// <summary>
     /// Lógica de interacción para RecuperarContrasenia.xaml
     /// </summary>
-    public partial class RecuperarContrasenia : Window
+    public partial class ConsultarProductos : Window
     {
-        public RecuperarContrasenia()
+        public ConsultarProductos()
         {
+
             InitializeComponent();
+
+            List<TarjetaConsultaProductos> listp = new List<TarjetaConsultaProductos>();
+
+            TarjetaConsultaProductos TarjetaProductoTemp;
+
+            for (int i = 0; i < 100; i++)
+                listp.Add(TarjetaProductoTemp = new TarjetaConsultaProductos());
+
+            for (int i = 0; i < listp.Count; i++)
+                warpanle_categorias.Children.Add(listp[i]);
         }
 
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)

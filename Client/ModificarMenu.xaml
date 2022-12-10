@@ -1,4 +1,4 @@
-﻿<Window x:Class="UV_Eats_Client.Client.RecuperarContrasenia"
+﻿<Window x:Class="UV_Eats_Client.Client.ModificarMenu"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@
          xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"       
         xmlns:local="clr-namespace:UV_Eats_Client.Client"
         mc:Ignorable="d"
-        Title="RecuperarContrasenia" Height="450" Width="800"
+        Title="RecuperarContrasenia" Height="531" Width="968"
         
         WindowStyle="None"
         ResizeMode="NoResize"
@@ -67,24 +67,33 @@
 
         </Border>
 
-        <Grid   Name="Formulario"  Margin="0,380,143,32" HorizontalAlignment="Right" Width="59" >
+        <Grid   Name="Formulario"  Margin="0,381,143,32" HorizontalAlignment="Right" Width="59" >
 
-            <Grid Background="#FFF9FDFF" Margin="-344,-325,-108,19" >
-                <Button x:Name="BtnEnviarCodigo"
-                    Content="Enviar Codigo"
+            <Grid Background="White" Margin="-491,-325,-108,0" >
+                <Button x:Name="BtSalir"
+                    Content="Salir"
                     Foreground="White"
                     Background="#1D0726"
-                    BorderBrush="Transparent" Click="btnEnviarCodigoRC" Margin="361,84,21,228"/>
-                <Button x:Name="BtnEnviarCodigo_Copy"
-                    Content="Cancelar"
-                    Foreground="White"
-                    Background="#1D0726"
-                    BorderBrush="Transparent" Click="Cancelar" Margin="30,290,352,22" Cursor="Hand"/>
+                    BorderBrush="Transparent" Click="Cancelar" Margin="23,401,516,10" Cursor="Hand"/>
+                <TextBlock
+                    FontSize="24"
+                    Foreground="#FFC871DC"
+                    Margin="23,10,463,399"><Run Language="es-mx" Text="Modificar Menu"/></TextBlock>
+
+                <Grid Margin="315,58,10,203" Background="#FFEAEAEA">
+                    <ScrollViewer>
+                        <StackPanel Width="428">
+                            <WrapPanel x:Name="warp_productos" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+
+
                 <Button x:Name="btnRecuperarContrasenia"
-                    Content="Actualizar"
+                    Content="Registrar categoria"
                     Foreground="#1D0726"
                     Background="Transparent"
-                    BorderBrush="Black" FontSize="12" Cursor="Hand" Click="BtActualizarContrasenia" RenderTransformOrigin="0.5,0.5" Margin="378,289,35,23">
+                    BorderBrush="Black" FontSize="12" Cursor="Hand" Click="BtActualizarContrasenia" RenderTransformOrigin="0.5,0.5" Margin="472,399,28,12">
                     <Button.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -94,21 +103,28 @@
                         </TransformGroup>
                     </Button.RenderTransform>
                 </Button>
-                <TextBox x:Name="EmailBox" materialDesign:HintAssist.Hint="Correo" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="30,84,171,232" Background="#FFDE8BFF" Foreground="#FF39005B" BorderBrush="#FF450694" BorderThickness="2,2,2,2"/>
-                <TextBox x:Name="TexBVerificacion" materialDesign:HintAssist.Hint="Codigo de verificacion" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="30,130,171,186" Background="#FFDE8BFF" Foreground="#FF39005B"  BorderBrush="#FF450694" BorderThickness="2,2,2,2"/>
-                <TextBox x:Name="TexBNuevaContrasenia" materialDesign:HintAssist.Hint="Nueva contrasenia" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="30,172,171,144" Background="#FFDE8BFF" Foreground="#FF39005B" BorderBrush="#FF450694" BorderThickness="2,2,2,2"/>
-                <TextBox x:Name="TexBnConfirmacionContra" materialDesign:HintAssist.Hint="Confirmar contrasenia" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="30,221,171,95" Background="#FFDE8BFF" Foreground="#FF39005B"  BorderBrush="#FF450694" BorderThickness="2,2,2,2"/>
-                <TextBlock
-                    FontSize="24"
-                    Foreground="#FFC871DC"
-                           Margin="30,20,217,281"><Run Language="es-mx" Text="Recuperar constrasenia"/></TextBlock>
-
-
+                <TextBlock Text="Lista de productos disponibles"
+                    Foreground="#1D0726"
+                    FontFamily="Tahoma"
+                    Margin="318,36,134,390" FontSize="14"/>
+                <TextBox x:Name="TxnombreProductos" materialDesign:HintAssist.Hint="Nombre" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="23,49,362,361" Background="#FFDE8BFF" Foreground="#FF39005B" BorderBrush="#FF450694" BorderThickness="2,2,2,2" FontSize="16"/>
+                <TextBox x:Name="TxnombreProductos_Copy" materialDesign:HintAssist.Hint="Descripcion" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="23,97,362,313" Background="#FFDE8BFF" Foreground="#FF39005B" BorderBrush="#FF450694" BorderThickness="2,2,2,2" FontSize="16"/>
+                <TextBox x:Name="TxnombreProductos_Copy1" materialDesign:HintAssist.Hint="Precio" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="23,149,362,261" Background="#FFDE8BFF" Foreground="#FF39005B" BorderBrush="#FF450694" BorderThickness="2,2,2,2" FontSize="16"/>
+                <TextBlock Text="Productos Agregados"
+                    Foreground="#1D0726"
+                    FontFamily="Tahoma"
+                    Margin="260,262,260,164" FontSize="14"/>
             </Grid>
         </Grid>
-
-        <Label Content="UV Eats" Margin="28,64,547,290" FontSize="50" Foreground="White" FontFamily="Segoe UI Black" FontWeight="Normal" FontStyle="Normal" />
-        <Image Source="/Client/Resources/HalconCirculo.png" Margin="16,136,555,82" />
+        <Grid Margin="0,0,202,91" Background="#FFEAEAEA" Height="100" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="333">
+            <ScrollViewer>
+                <StackPanel Width="333">
+                    <StackPanel x:Name="warp_productosAgregados" HorizontalAlignment="Left"/>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <Label Content="UV Eats" Margin="28,64,727,382" FontSize="50" Foreground="White" FontFamily="Segoe UI Black" FontWeight="Normal" FontStyle="Normal" />
+        <Image Source="/Client/Resources/HalconCirculo.png" Margin="16,136,712,87" />
     </Grid>
 </Window>
 

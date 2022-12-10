@@ -1,0 +1,16 @@
+﻿<Window x:Class="UV_Eats_Client.Client.VentanasFlotantes.CalificarProducto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UV_Eats_Client.Client.VentanasFlotantes"
+        mc:Ignorable="d"
+        Title="CalificarProducto" Height="243" Width="571">
+    <Grid Background="#FF2D0027">
+        <Button Content="Dislike" HorizontalAlignment="Right" Margin="0,70,367,125" Background="White" Width="90"/>
+        <Button Content="Like" HorizontalAlignment="Right" Margin="0,70,109,125" Background="White" Width="90"/>
+        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="83,175,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="139"/>
+        <Button Content="Confirmar" HorizontalAlignment="Left" Margin="348,175,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="138"/>
+
+    </Grid>
+</Window>

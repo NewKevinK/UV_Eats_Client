@@ -15,9 +15,9 @@ namespace UV_Eats_Client.Client
     /// <summary>
     /// Lógica de interacción para RecuperarContrasenia.xaml
     /// </summary>
-    public partial class RecuperarContrasenia : Window
+    public partial class ModificarCategorias : Window
     {
-        public RecuperarContrasenia()
+        public ModificarCategorias()
         {
             InitializeComponent();
         }
@@ -48,6 +48,11 @@ namespace UV_Eats_Client.Client
         }
 
         private void Cancelar(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ActualizarCategoria(object sender, RoutedEventArgs e)
         {
 
         }

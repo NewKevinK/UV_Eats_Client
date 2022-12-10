@@ -13,29 +13,44 @@ using System.Windows.Shapes;
 namespace UV_Eats_Client.Client
 {
     /// <summary>
-    /// Lógica de interacción para RegistrarEstudiante.xaml
+    /// Lógica de interacción para RecuperarContrasenia.xaml
     /// </summary>
-    public partial class RegistrarEstudiante : Window
+    public partial class ModificarProducto : Window
     {
-        public RegistrarEstudiante()
+        public ModificarProducto()
         {
             InitializeComponent();
         }
 
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
-            WindowState = WindowState.Minimized;
+
         }
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+
         }
 
-        private void btnNuevoUsuario_Click(object sender, RoutedEventArgs e)
+        private void btnNuevaContrasenia_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
+        private void btnEnviarCodigoRC(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtActualizarContrasenia(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Cancelar(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
+
