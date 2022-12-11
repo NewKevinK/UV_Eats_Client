@@ -68,7 +68,7 @@ namespace UV_Eats_Client.Client
                 precio = 20,
                 unidades = 50
 
-            };
+            };   
             //string objectU = JsonConvert.SerializeObject(producto);
             //dynamic respu = API.PatchToken("http://localhost:1999/api/producto/", objectU, token );
 
@@ -129,6 +129,15 @@ namespace UV_Eats_Client.Client
         private void btnLogoutClick(object sender, RoutedEventArgs e)
         {
             //cerrar sesion
+            InicioSesion ini = new InicioSesion();
+            ini.Show();
+            this.Hide();
+
+        }
+
+        private void btnNuevoUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            menu2.Visibility = Visibility.Visible;
         }
     }
 }

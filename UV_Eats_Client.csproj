@@ -10,6 +10,11 @@
     <None Remove="Client\Resources\account.png" />
     <None Remove="Client\Resources\cart.png" />
     <None Remove="Client\Resources\dislike.png" />
+    <None Remove="Client\Resources\DIU\displayCarroCompra.png" />
+    <None Remove="Client\Resources\DIU\displayCarroCompra2.png" />
+    <None Remove="Client\Resources\DIU\displayCategorias.png" />
+    <None Remove="Client\Resources\DIU\displayMenu1.png" />
+    <None Remove="Client\Resources\DIU\displayMenu2.png" />
     <None Remove="Client\Resources\HalconCirculo.png" />
     <None Remove="Client\Resources\logout.png" />
     <None Remove="Client\Resources\LogoUV.png" />
@@ -33,6 +38,11 @@
     <Resource Include="Client\Resources\dislike.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Client\Resources\DIU\displayCarroCompra.png" />
+    <Resource Include="Client\Resources\DIU\displayCarroCompra2.png" />
+    <Resource Include="Client\Resources\DIU\displayCategorias.png" />
+    <Resource Include="Client\Resources\DIU\displayMenu1.png" />
+    <Resource Include="Client\Resources\DIU\displayMenu2.png" />
     <Resource Include="Client\Resources\HalconCirculo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

@@ -89,15 +89,19 @@
                     </Setter>
                 </Style>
             </TabControl.Resources>
-            <TabItem Header="Menu">
+            <TabItem Header="Menu" >
+
+
 
                 <Grid Grid.Row="2">
+
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="26" />
-                        <ColumnDefinition />
+                        <ColumnDefinition Width="296*" />
+                        <ColumnDefinition Width="441*"/>
                         <ColumnDefinition Width="17" />
                     </Grid.ColumnDefinitions>
-
+                    
                     <!--#region Botones Izq - Der -->
 
                     <!--      <Button Grid.Column="0" Background="Transparent" BorderBrush="Transparent" Name="_buttonLeftArrow" Click="_buttonLeftArrow_Click">
@@ -117,7 +121,7 @@
                                             AutoSizeToParent="true"
                                             RotationSpeed="250" 
                                             VerticalOrientation="False"
-                                            VerticalAlignment="Center" Height="0" Margin="0,0,0,0" Grid.Column="1">
+                                            VerticalAlignment="Center" Height="0" Grid.Column="1" Grid.ColumnSpan="2">
                         <WPFCarouselControl:CarouselControl.Style>
                             <Style TargetType="WPFCarouselControl:CarouselControl">
                                 <Setter Property="CarouselItemTemplate" >
@@ -168,45 +172,64 @@
                             </Style>
                         </WPFCarouselControl:CarouselControl.Style>
                     </WPFCarouselControl:CarouselControl>
+                    <Image Source="/Client/Resources/DIU/displayMenu1.png" Grid.ColumnSpan="2" Margin="7,0,16,0" Grid.Column="1" />
+                    <Image Source="/Client/Resources/DIU/displayMenu2.png" Grid.ColumnSpan="2" Margin="7,0,16,0" Grid.Column="1" x:Name="menu2" Visibility="Hidden" />
+                    <Button x:Name="btnNuevoUsuario" Margin="28,254,0,0" Height="26" Width="21"
+                            Content=""
+                            Foreground="#1D0726"
+                            Background="Transparent"
+                            BorderBrush="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="12" Cursor="Hand" Click="btnNuevoUsuario_Click" Grid.Column="2"/>
 
 
                 </Grid>
+                
             </TabItem>
+            
+            
             <TabItem Header="Productos" >
+            <Image Source="/Client/Resources/DIU/displayCategorias.png" />
 
             </TabItem>
 
 
             <TabItem Header="Pedidos" >
-                
+
                 //
-                
+
             </TabItem>
 
 
             <TabItem Header="Sobre nosotros">
                 <Label Content="Content goes here..." />
+
+
             </TabItem>
             <TabItem x:Name="tabCarrito" Header="Carrito" Visibility="Collapsed">
-                <Grid Margin="0,10,0,0">
-                    <Grid.Background>
-                        <SolidColorBrush Color="#FF761F7B" Opacity="0.52"/>
+                
+                
+                <Grid Margin="0,10,0,0" >
+                    <Grid.Background >
+                        <SolidColorBrush Color="#FF761F7B" Opacity="0.5"/>
                     </Grid.Background>
-                    <Grid>
+                    <Grid Visibility="Hidden">
                         <TextBlock x:Name="labeltitulo" Text="Carrito de compra" FontSize="22" Foreground="White" Margin="10,-1,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                     </Grid>
-                    <Grid Margin="547,37,29,43" Background="#FF631888" Height="233">
+                    <Grid Margin="547,37,29,43" Background="#FF631888" Height="233" Visibility="Visible">
                         <Label Content="Subtotal: $" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="92"/>
                         <Button Content="Proceder a pago" HorizontalAlignment="Center" Margin="0,65,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1"/>
                         <Button Content="Borrar Carrito" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="White" Background="#FFE52CF9"/>
                         <Label Content="0" HorizontalAlignment="Left" Margin="93,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="80"/>
                     </Grid>
-                    <ScrollViewer Margin="12,37,256,10">
+                     <ScrollViewer Margin="12,37,256,10">
                         <StackPanel>
                             <WrapPanel x:Name="warpanle_prueb" HorizontalAlignment="Left"/>
-                        </StackPanel>
+                        </StackPanel> 
                     </ScrollViewer>
+                    <Image Source="/Client/Resources/DIU/displayCarroCompra2.png" Margin="550,0,0,0"/>
+
+
                 </Grid>
+                    
             </TabItem>
             <TabItem Header="Informacion Perfil" Visibility="Collapsed">
                 <Grid>
