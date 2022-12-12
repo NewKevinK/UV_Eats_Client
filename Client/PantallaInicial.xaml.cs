@@ -131,7 +131,7 @@ namespace UV_Eats_Client.Client
         private void cargarPedidos()
         {
 
-            dynamic respuestaProductos = API.GetToken("https://uveatsapi-production.up.railway.app/api/orden/getOrden", token);
+            dynamic respuestaProductos = API.GetToken("https://uveatsapi-production.up.railway.app/api/orden/ordenProducto", token);
             dynamic imagenRespuestaProductos = API.GetNoToken("https://uveatsapi-production.up.railway.app/api/archivo/getProducto");
 
             List<TarjetaProductosRealizados> listp = new List<TarjetaProductosRealizados>();
