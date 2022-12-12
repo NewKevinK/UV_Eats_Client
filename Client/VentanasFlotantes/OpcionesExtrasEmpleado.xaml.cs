@@ -82,5 +82,25 @@ namespace UV_Eats_Client.Client.VentanasFlotantes
         {
 
         }
+        private void ConsultarMenus(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void ModificarProducto(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ModificarCategoria(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ModificarMenu(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
     }
 }

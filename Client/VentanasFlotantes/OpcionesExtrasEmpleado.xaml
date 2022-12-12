@@ -4,22 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UV_Eats_Client.Client.VentanasFlotantes"
-             mc:Ignorable="d" Height="400" Width="614">
+             mc:Ignorable="d" Height="372" Width="614">
     <Grid Background="#FF2D0027">
         <Label Content="Opciones de usuario" Foreground="White" FontFamily="Segoe UI Black" FontWeight="Normal" FontStyle="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" Height="45" Width="217" FontSize="18" />
-        <Button Content="Platillos Favoritos" HorizontalAlignment="Left" Margin="415,109,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="168" Click="BotonPlatillosFavoritos"/>
-        <Button Content="Proceder al pedido" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="168" Click="ProcederAlPedido" Margin="34,109,0,0"/>
-        <Button Content="Registrar Usuario" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="169" Click="RegistrarUsuario" Cursor="Hand" Margin="33,204,0,0"/>
-        <Button Content="Registrar Productos" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="169" Click="RegistrarProdcuto" Cursor="Hand" Margin="32,253,0,0"/>
-        <Button Content="Registrar Categoria" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="169" Click="RegistrarCategoria" Cursor="Hand" Margin="32,300,0,0"/>
-        <Button Content="Registrar Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="169" Click="RegistrarMenu" Cursor="Hand" Margin="32,348,0,0"/>
-        <Label Content="Opciones Empleado" Foreground="White" FontFamily="Segoe UI Black" FontWeight="Normal" FontStyle="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" Height="45" Width="216" FontSize="18" Margin="0,141,0,0" />
-        <Button Content="Modificar Productos" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="168" Click="ModificarProducto" Cursor="Hand" Margin="226,205,0,0"/>
-        <Button Content="Modificar Categoria" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="168" Click="ModificarCategoria" Cursor="Hand" Margin="226,252,0,0"/>
-        <Button Content="Modificar Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="168" Click="ModificarMenu" Cursor="Hand" Margin="226,300,0,0"/>
-        <Button Content="Consultar Menus" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="168" Click="ConsultarMenus" Cursor="Hand" Margin="415,300,0,0"/>
-        <Button Content="Consultar Pedidos Realizados" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="230" Click="ConsultarPedidosRealizados" Cursor="Hand" Margin="0,45,0,0"/>
-        <Button Content="Consultar Categorias" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="168" Click="ConsultarCategorias" Cursor="Hand" Margin="415,252,0,0"/>
-        <Button Content="Consultar Productos" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="168" Click="ConsultarProductos" Cursor="Hand" Margin="415,204,0,0"/>
+        <Button Content="Platillos Favoritos" HorizontalAlignment="Left" Margin="420,93,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="168" Click="BotonPlatillosFavoritos"/>
+        <Button Content="Proceder al pedido" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="168" Click="ProcederAlPedido" Margin="26,83,0,0"/>
+        <Button Content="Registrar Usuario" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="169" Click="RegistrarUsuario" Cursor="Hand" Margin="33,168,0,0"/>
+        <Button Content="Registrar Productos" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="169" Click="RegistrarProdcuto" Cursor="Hand" Margin="32,217,0,0"/>
+        <Button Content="Registrar Categoria" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="169" Click="RegistrarCategoria" Cursor="Hand" Margin="32,264,0,0"/>
+        <Button Content="Registrar Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="169" Click="RegistrarMenu" Cursor="Hand" Margin="32,312,0,0"/>
+        <Label Content="Opciones Empleado" Foreground="White" FontFamily="Segoe UI Black" FontWeight="Normal" FontStyle="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Center" Height="45" Width="216" FontSize="18" Margin="0,105,0,0" />
+        <Button Content="Modificar Productos" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="168" Click="ModificarProducto" Cursor="Hand" Margin="226,169,0,0"/>
+        <Button Content="Modificar Categoria" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="168" Click="ModificarCategoria" Cursor="Hand" Margin="226,216,0,0"/>
+        <Button Content="Modificar Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="168" Click="ModificarMenu" Cursor="Hand" Margin="226,264,0,0"/>
+        <Button Content="Consultar Menus" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="168" Click="ConsultarMenus" Cursor="Hand" Margin="415,264,0,0"/>
+        <Button Content="Consultar Pedidos Realizados" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="217" Click="ConsultarPedidosRealizados" Cursor="Hand" Margin="0,45,0,0" Height="34"/>
+        <Button Content="Consultar Categorias" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="168" Click="ConsultarCategorias" Cursor="Hand" Margin="415,216,0,0"/>
+        <Button Content="Consultar Productos" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="168" Click="ConsultarProductos" Cursor="Hand" Margin="415,168,0,0"/>
     </Grid>
 </UserControl>

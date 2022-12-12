@@ -22,5 +22,24 @@ namespace UV_Eats_Client.Client.UserControls
         {
             InitializeComponent();
         }
+        public TarjetaPlatilloFavorito()
+        {
+            InitializeComponent();
+        }
+
+        private void agregarCarrito(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ordenarYa(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void elimiarProducto(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
