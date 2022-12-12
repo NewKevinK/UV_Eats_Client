@@ -7,7 +7,7 @@ namespace UV_Eats_Client.Models
 {
     public class Producto
     {
-        public string idProducto { get; set; }
+        public int idProducto { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }
         public float precio { get; set; }
@@ -17,7 +17,7 @@ namespace UV_Eats_Client.Models
         public string imagenProducto { get; set; }
 
 
-        public Producto(string idProducto, string nombre, string descripcion, float precio, int unidades, string imagenProducto, int numlike, int numdislike)
+        public Producto(int idProducto, string nombre, string descripcion, float precio, int unidades, string imagenProducto, int numlike, int numdislike)
         {
             this.idProducto = idProducto;
             this.nombre = nombre;

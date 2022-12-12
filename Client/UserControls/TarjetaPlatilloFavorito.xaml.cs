@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UV_Eats_Client.Models;
 
 namespace UV_Eats_Client.Client.UserControls
 {
@@ -22,9 +23,14 @@ namespace UV_Eats_Client.Client.UserControls
         {
             InitializeComponent();
         }
-        public TarjetaPlatilloFavorito()
+        public TarjetaPlatilloFavorito(Producto productoFav)
         {
             InitializeComponent();
+            nombreProducto.Content = productoFav.nombre;
+            descripcionProducto.Content = productoFav.descripcion;
+            precioProducto.Content = productoFav.precio;
+            Uri fileUri = new Uri(productoFav.imagenProducto);
+            imagenProducto.Source = new BitmapImage(fileUri);
         }
 
         private void agregarCarrito(object sender, RoutedEventArgs e)

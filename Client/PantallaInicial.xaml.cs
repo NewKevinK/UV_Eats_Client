@@ -139,30 +139,36 @@ namespace UV_Eats_Client.Client
 
         private void cargarFavoritos()
         {
+            MessageBox.Show("Error 1");
             dynamic respuestaProductosfav = API.GetToken("https://uveatsapi-production.up.railway.app/api/producto/getFav/"+idUsuario, token);
 
-            List<Producto> productosFavoritos = JsonConvert.DeserializeObject<List<CarroCompraProductos>>(respuestaProductosfav.Content);
+            List<ProductoID> productosFavoritos = JsonConvert.DeserializeObject<List<ProductoID>>(respuestaProductosfav.Content);
 
+            MessageBox.Show(productosFavoritos[0].idProducto+"Error 1" + productosFavoritos[1].idProducto);
 
+            List<Producto> productosFavoritosSeleccionados = new List<Producto>();
+
+            MessageBox.Show("Error 11");
             for (int i = 0; i < productosFavoritos.Count; i++)
             {
-
+               // MessageBox.Show("Error 122"+productosFavoritos.Count);
                 for (int z = 0; z < JsonProducto.Count; z++)
                 {
-                    if (JsonProducto[i].idProducto == productosFavoritos[z].idProducto)
+                   // MessageBox.Show("Error 133"+JsonProducto.Count);
+                    if (productosFavoritos[i].idProducto == JsonProducto[z].idProducto)
                     {
-                        productosCarro[i].imagenProducto = urlImagenProducto[z].url;
+                       // MessageBox.Show("Error 144"+ JsonProducto.Count);
+                        productosFavoritosSeleccionados.Add(JsonProducto[z]);
+                       // MessageBox.Show("Error 155");
                     }
                 }
-                preciosub = preciosub + productosCarro[i].precio;
-
             }
-
+            MessageBox.Show("Error 144523");
             List<TarjetaPlatilloFavorito> listp = new List<TarjetaPlatilloFavorito>();
             TarjetaPlatilloFavorito TarjetaConsultaProductos1;
 
-            for (int i = 0; i < 10; i++)
-                listp.Add(TarjetaConsultaProductos1 = new TarjetaPlatilloFavorito());
+            for (int i = 0; i < productosFavoritosSeleccionados.Count; i++)
+                listp.Add(TarjetaConsultaProductos1 = new TarjetaPlatilloFavorito(productosFavoritosSeleccionados[i]));
 
             for (int i = 0; i < listp.Count; i++)
                 warpanle_platillosFav.Children.Add(listp[i]);
