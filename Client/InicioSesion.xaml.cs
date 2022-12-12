@@ -52,10 +52,23 @@ namespace UV_Eats_Client.Client
 
                 if (auth.message == "authenticated user")
                {
-                    PantallaInicial pantallaInicial = new PantallaInicial(auth);
-                    pantallaInicial.Show();
-                    //Application.Current.Shutdown();
-                    this.Hide();
+
+                    if (usuario.email[0].ToString() == "z" && usuario.email[1].ToString() == "s")
+                    {
+                        PantallaInicial pantallaInicial = new PantallaInicial(auth);
+                        pantallaInicial.Show();
+                        //Application.Current.Shutdown();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        string tipoUsuario = "EMPLEADO";
+                        PantallaInicial pantallaInicial = new PantallaInicial(auth, tipoUsuario);
+                        pantallaInicial.Show();
+                        //Application.Current.Shutdown();
+                        this.Hide();
+                    }
+
                 }
                 //MessageBox.Show("El mensaje es: " + auth.message);
                 //MessageBox.Show("Inicio de sesion exitoso");

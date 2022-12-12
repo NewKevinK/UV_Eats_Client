@@ -33,15 +33,38 @@ namespace UV_Eats_Client.Client
         API API = new API();
         String token;
         String idUsuario;
-        int opciosc = 0;
+        //int opciosc = 0;
+        string tipoUsuario="CLIENTE";
+
         OpcionesExtras extras = new OpcionesExtras();
+        
+        OpcionesExtrasEmpleado extrasEmpleado = new OpcionesExtrasEmpleado();
 
         List<ProductoImagen> urlImagenProducto = new List<ProductoImagen>();
-        public PantallaInicial(Auth auth)
+        List<Producto> JsonProducto = new List<Producto>();
+        public PantallaInicial(Auth auth)//Usuario normal
         {
             token = auth.token;
             idUsuario = auth.id;
-            
+            InitializeComponent();
+            DataContext = new MenuViewModel(token);
+
+            _carouselDABMenu.SelectionChanged += _carouselDABEE_SelectionChanged;
+
+            cargarMenu();
+            cargarProductos();
+            cargarPedidos();
+            cargarFavoritos();
+            cargarPedidosAsolicitar();
+            cargarCarrito();
+            cargarObjetos();
+        }
+        public PantallaInicial(Auth auth,string tipoUsuario)//Usuario Empleado
+        {
+            token = auth.token;
+            idUsuario = auth.id;
+            this.tipoUsuario = tipoUsuario;
+
             InitializeComponent();
             DataContext = new MenuViewModel(token);
 
@@ -75,7 +98,6 @@ namespace UV_Eats_Client.Client
             // dynamic imagenRespuestaProductos = API.GetNoToken("https://uveatsapi-production.up.railway.app/api/archivo/getProducto");
             int preciosub=0;
 
-            //List<Categorias> JsonCategoria = JsonConvert.DeserializeObject<List<Categorias>>(respuestaCategoria.Content
             for(int i = 0; i < productosCarro.Count; i++)
             {
                 
@@ -105,7 +127,6 @@ namespace UV_Eats_Client.Client
         private void cargarPedidosAsolicitar()
         {
 
-
             List<TarjetaProductosPedidos> listp = new List<TarjetaProductosPedidos>();
             TarjetaProductosPedidos TarjetaConsultaProductos1;
 
@@ -118,6 +139,25 @@ namespace UV_Eats_Client.Client
 
         private void cargarFavoritos()
         {
+            dynamic respuestaProductosfav = API.GetToken("https://uveatsapi-production.up.railway.app/api/producto/getFav/"+idUsuario, token);
+
+            List<Producto> productosFavoritos = JsonConvert.DeserializeObject<List<CarroCompraProductos>>(respuestaProductosfav.Content);
+
+
+            for (int i = 0; i < productosFavoritos.Count; i++)
+            {
+
+                for (int z = 0; z < JsonProducto.Count; z++)
+                {
+                    if (JsonProducto[i].idProducto == productosFavoritos[z].idProducto)
+                    {
+                        productosCarro[i].imagenProducto = urlImagenProducto[z].url;
+                    }
+                }
+                preciosub = preciosub + productosCarro[i].precio;
+
+            }
+
             List<TarjetaPlatilloFavorito> listp = new List<TarjetaPlatilloFavorito>();
             TarjetaPlatilloFavorito TarjetaConsultaProductos1;
 
@@ -131,7 +171,7 @@ namespace UV_Eats_Client.Client
         private void cargarPedidos()
         {
 
-            dynamic respuestaProductos = API.GetToken("https://uveatsapi-production.up.railway.app/api/orden/getOrden", token);
+            dynamic respuestaProductos = API.GetToken("https://uveatsapi-production.up.railway.app/api/orden/ordenProducto", token);
             dynamic imagenRespuestaProductos = API.GetNoToken("https://uveatsapi-production.up.railway.app/api/archivo/getProducto");
 
             List<TarjetaProductosRealizados> listp = new List<TarjetaProductosRealizados>();
@@ -161,7 +201,7 @@ namespace UV_Eats_Client.Client
 
 
             urlImagenProducto = JsonConvert.DeserializeObject<List<ProductoImagen>>(imagenRespuestaProductos.Content);
-            List<Producto> JsonProducto = JsonConvert.DeserializeObject<List<Producto>>(respuestaProductos.Content);
+            JsonProducto = JsonConvert.DeserializeObject<List<Producto>>(respuestaProductos.Content);
 
 
             for (int i = 0; i < JsonCategoria.Count; i++)
@@ -246,18 +286,39 @@ namespace UV_Eats_Client.Client
 
         private void btnShowProfileClick(object sender, RoutedEventArgs e)
         {
-            if (banOpcionExtra==0)
+            if (tipoUsuario == "CLIENTE")
             {
-                gripOpciones.Children.Add(extras);
-                gripOpciones.Visibility=Visibility.Visible;
-                banOpcionExtra = 1;
+                if (banOpcionExtra == 0)
+                {
+                    gripOpciones.Children.Add(extras);
+                    gripOpciones.Visibility = Visibility.Visible;
+                    banOpcionExtra = 1;
 
-            }else if (banOpcionExtra==1)
-            {
-                gripOpciones.Visibility = Visibility.Collapsed;
-                gripOpciones.Children.Clear();
-                banOpcionExtra = 0;
+                }
+                else if (banOpcionExtra == 1)
+                {
+                    gripOpciones.Visibility = Visibility.Collapsed;
+                    gripOpciones.Children.Clear();
+                    banOpcionExtra = 0;
+                }
             }
+            else if(tipoUsuario == "EMPLEADO"){
+                if (banOpcionExtra == 0)
+                {
+                    gripOpciones.Children.Add(extrasEmpleado);
+                    gripOpciones.Visibility = Visibility.Visible;
+                    banOpcionExtra = 1;
+
+                }
+                else if (banOpcionExtra == 1)
+                {
+                    gripOpciones.Visibility = Visibility.Collapsed;
+                    gripOpciones.Children.Clear();
+                    banOpcionExtra = 0;
+                }
+
+            }
+
 
         }
 

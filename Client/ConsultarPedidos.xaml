@@ -78,7 +78,7 @@
                 <TextBlock
                     FontSize="24"
                     Foreground="#FFC871DC"
-                    Margin="185,0,154,319"><Run Language="es-mx" Text="Lista de menus"/></TextBlock>
+                    Margin="185,0,154,319"><Run Language="es-mx" Text="Lista de pedidos"/></TextBlock>
 
                 <Grid Margin="40,58,33,63" Background="#FFEAEAEA">
                     
