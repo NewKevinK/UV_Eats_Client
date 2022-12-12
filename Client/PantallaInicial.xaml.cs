@@ -93,7 +93,34 @@ namespace UV_Eats_Client.Client
             cargarPedidosAsolicitar();
            
         }
+        public void agregarALCARRO(int idproducto)
+        {
+            //productoJS productonew = new productoJS{ idProducto = idproducto};
+            int cantidad = 1;
+            float precioproducto=0;
+            for(int i = 0; i < JsonProducto.Count; i++)
+            {
+                if (JsonProducto[i].idProducto == idproducto)
+                {
+                    //productonew.cantidad = 1;
+                    precioproducto = JsonProducto[i].precio;
+                    
+                }
 
+            }
+            
+            parameter productonew = new parameter { idProducto = 1, cantidad=1, precio=65, idCarro=1};
+            //string json = @"{ ""idProducto"":""1"", " + "\n" + @"""cantidad"":""1""" + "\n" + @"""preico"":""15.0""" +"\n" + @"""idCarro"":""1""" + "\n" + @"}";
+
+
+            string objectU = JsonConvert.SerializeObject(productonew);
+
+            MessageBox.Show(objectU);
+
+            dynamic agregarAlcarroFUCK = API.PostToken("https://uveatsapi-production.up.railway.app/api/carro/addCar/", objectU, token);
+
+            cargarCarrito();
+        }
         private void cargarCarrito()
         {
 
@@ -219,7 +246,7 @@ namespace UV_Eats_Client.Client
             List<Orden> productosFavoritosSeleccionados = new List<Orden>();
 
             List<TarjetaProductosPedidos> listp = new List<TarjetaProductosPedidos>();
-            MessageBox.Show("Error 122 1" + OrdenesRecuperadas[0].fecha);
+
 
             TarjetaProductosPedidos TarjetaConsultaProductos1;
 
@@ -376,7 +403,12 @@ namespace UV_Eats_Client.Client
             Application.Current.Shutdown();
         }
 
-        private void btnS_Click(object sender, RoutedEventArgs e)
+        private void procederAlpago(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void eliminarProductoCarrito(object sender, RoutedEventArgs e)
         {
 
         }
