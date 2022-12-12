@@ -10,6 +10,13 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UV_Eats_Client.Logic;
+using UV_Eats_Client.Models;
+using UV_Eats_Client;
+using UV_Eats_Client.Client.UserControls;
+using UV_Eats_Client.Client.VentanasFlotantes;
+using Newtonsoft.Json;
+
 
 namespace UV_Eats_Client.Client
 {
@@ -18,8 +25,16 @@ namespace UV_Eats_Client.Client
     /// </summary>
     public partial class RegistrarCategoria : Window
     {
-        public RegistrarCategoria()
+
+        API API = new API();
+        Auth auth2;
+        String token;
+        String idUsuario;
+        public RegistrarCategoria(Auth auth)
         {
+            token = auth.token;
+            idUsuario = auth.id;
+            auth2 = auth;
             InitializeComponent();
         }
 
@@ -33,10 +48,7 @@ namespace UV_Eats_Client.Client
 
         }
 
-        private void btnNuevaContrasenia_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void btnEnviarCodigoRC(object sender, RoutedEventArgs e)
         {
@@ -64,6 +76,50 @@ namespace UV_Eats_Client.Client
                 string filepath = openFileDialog.FileName;
                 MessageBox.Show(filepath);
 
+            }
+        }
+
+        private void btnRegistrarCategoria(object sender, RoutedEventArgs e)
+        {
+            
+
+        }
+
+        private void btnRegistrarCategoria2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRegistrarCategoria3_Click(object sender, RoutedEventArgs e)
+        {
+            Categorias categoria = new Categorias
+            {
+                nombre = TxNombrecategoria.Text,
+                descripcion = "Disponible"
+
+            };
+            string objectC = JsonConvert.SerializeObject(categoria);
+            try
+            {
+                //dynamic respuesta = API.PostNoToken("https://uveatsapi-production.up.railway.app/api/auth", objectU);
+                dynamic respuesta = API.PostToken("https://uveatsapi-production.up.railway.app/api/categoria/", objectC, token);
+
+                //Auth auth = JsonConvert.DeserializeObject<Auth>(respuesta.Content);
+                Respuesta res = JsonConvert.DeserializeObject<Respuesta>(respuesta.Content);
+                if (res.message == "categoria added")
+                {
+                    OpcionesExtrasEmpleado op = new OpcionesExtrasEmpleado(auth2);
+                    //
+                    this.Hide();
+                }
+                else
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

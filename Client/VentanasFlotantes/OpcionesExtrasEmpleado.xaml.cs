@@ -10,6 +10,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UV_Eats_Client.Logic;
+using UV_Eats_Client.Models;
+using UV_Eats_Client;
+using UV_Eats_Client.Client.UserControls;
+using UV_Eats_Client.Client.VentanasFlotantes;
+using Newtonsoft.Json;
 
 namespace UV_Eats_Client.Client.VentanasFlotantes
 {
@@ -19,11 +25,19 @@ namespace UV_Eats_Client.Client.VentanasFlotantes
     public partial class OpcionesExtrasEmpleado : UserControl
     {
         public int elementoPrueba = 0;
-        public OpcionesExtrasEmpleado()
+
+        Auth auth2;
+        String token;
+        String idUsuario;
+        public OpcionesExtrasEmpleado(Auth auth)
         {
             InitializeComponent();
         }
 
+        public OpcionesExtrasEmpleado()
+        {
+            InitializeComponent();
+        }
         public void BotonPlatillosFavoritos(object sender, RoutedEventArgs e)
         {
             var padre = Window.GetWindow(this) as UV_Eats_Client.Client.PantallaInicial;
@@ -51,16 +65,20 @@ namespace UV_Eats_Client.Client.VentanasFlotantes
 
         private void RegistrarMenu(object sender, RoutedEventArgs e)
         {
-
+            RegistrarMenu rm = new RegistrarMenu();
+            rm.Show();
         }
         private void RegistrarCategoria(object sender, RoutedEventArgs e)
         {
-
+            RegistrarCategoria rc = new RegistrarCategoria(auth2);
+            rc.Show();
+            
         }
 
         private void RegistrarProdcuto(object sender, RoutedEventArgs e)
         {
-
+            RegistrarProducto rp = new RegistrarProducto();
+            rp.Show();
         }
 
         private void RegistrarUsuario(object sender, RoutedEventArgs e)
