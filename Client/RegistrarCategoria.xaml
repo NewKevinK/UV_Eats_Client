@@ -76,11 +76,11 @@
                     Foreground="White"
                     Background="#1D0726"
                     BorderBrush="Transparent" Click="Cancelar" Margin="152,278,143,52" Cursor="Hand"/>
-                <Button x:Name="btnRecuperarContrasenia"
+                <Button x:Name="btnRegistrarCategoria3"
                     Content="Registrar categoria"
                     Foreground="#1D0726"
                     Background="Transparent"
-                    BorderBrush="Black" FontSize="12" Cursor="Hand" Click="BtActualizarContrasenia" RenderTransformOrigin="0.5,0.5" Margin="181,316,172,14">
+                    BorderBrush="Black" FontSize="12" Cursor="Hand"  RenderTransformOrigin="0.5,0.5" Margin="181,316,172,14" Click="btnRegistrarCategoria3_Click">
                     <Button.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>

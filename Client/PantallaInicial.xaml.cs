@@ -33,6 +33,7 @@ namespace UV_Eats_Client.Client
         API API = new API();
         String token;
         String idUsuario;
+        Auth auth2;
         //int opciosc = 0;
         string tipoUsuario="CLIENTE";
 
@@ -46,6 +47,7 @@ namespace UV_Eats_Client.Client
         {
             token = auth.token;
             idUsuario = auth.id;
+            auth2 = auth;
             InitializeComponent();
             DataContext = new MenuViewModel(token);
 
