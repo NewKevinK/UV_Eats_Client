@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UV_Eats_Client.Models;
 
 namespace UV_Eats_Client.Client.UserControls
 {
@@ -22,6 +23,18 @@ namespace UV_Eats_Client.Client.UserControls
         {
             InitializeComponent();
             
+        }
+        public TarjetaProducto(Producto newproducto)
+        {
+            InitializeComponent();
+            nombreProducto.Content = newproducto.nombre;
+            descripcionProducto.Content = newproducto.descripcion;
+            precioProducto.Content = newproducto.precio;
+            numdislikes.Content = newproducto.numDislike;
+            numlikes.Content = newproducto.numLike;
+            Uri fileUri = new Uri(newproducto.imagenProducto);
+            imagenProductotar.Source = new BitmapImage(fileUri);
+
         }
     }
 }

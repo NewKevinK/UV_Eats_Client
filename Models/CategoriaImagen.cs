@@ -4,18 +4,18 @@ using System.Text;
 
 namespace UV_Eats_Client.Models
 {
-    public class categoriaImagen
+    public class CategoriaImagen
     {
 
         public int IdCategoria { get; set; }
         public string url { get; set; }
 
-        public categoriaImagen(int idCategoria, string url)
+        public CategoriaImagen(int idCategoria, string url)
         {
             this.IdCategoria = idCategoria;
             this.url = url;
         }
-        public categoriaImagen()
+        public CategoriaImagen()
         {
 
         }

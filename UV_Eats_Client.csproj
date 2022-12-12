@@ -11,6 +11,7 @@
     <None Remove="Client\Resources\cart.png" />
     <None Remove="Client\Resources\dislike.png" />
     <None Remove="Client\Resources\HalconCirculo.png" />
+    <None Remove="Client\Resources\like.png" />
     <None Remove="Client\Resources\logout.png" />
     <None Remove="Client\Resources\LogoUV.png" />
   </ItemGroup>
@@ -36,6 +37,7 @@
     <Resource Include="Client\Resources\HalconCirculo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Client\Resources\like.png" />
     <Resource Include="Client\Resources\logout.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
