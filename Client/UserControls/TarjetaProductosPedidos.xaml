@@ -9,10 +9,11 @@
         <Grid.Background>
             <SolidColorBrush Color="#FF781A96" Opacity="0.5"/>
         </Grid.Background>
-        <Image Margin="6,20,326,20" Source="/Client/Resources/cart.png"/>
-        <Label Content="Orden de empanadas" Margin="134,10,0,98" Foreground="#FFFFF6F6" FontSize="16" HorizontalAlignment="Left" Width="214" FontWeight="Bold"/>
-        <Label Content="Orden de 3 empanadas ya sean de pollo, papa o frijol " Margin="134,47,0,20" Foreground="White" HorizontalAlignment="Left" Width="193" FontSize="11"/>
-        <Label Content="Precio:" Margin="332,66,0,48" Foreground="White" HorizontalAlignment="Left" Width="46"/>
-        <Label Content="0" Margin="370,66,0,49" Foreground="White" HorizontalAlignment="Left" Width="24"/>
+        <Image x:Name="imagenProducto" Margin="6,20,326,20" Source="/Client/Resources/cart.png"/>
+        <Label x:Name="nombreProducto" Content="Orden de empanadas" Margin="134,10,0,98" Foreground="#FFFFF6F6" FontSize="16" HorizontalAlignment="Left" Width="214" FontWeight="Bold"/>
+        <Label x:Name="descripcionProducto" Content="Orden de 3 empanadas ya sean de pollo, papa o frijol " Margin="134,47,0,63" Foreground="White" HorizontalAlignment="Left" Width="193" FontSize="11"/>
+        <Label Content="costo:" Margin="331,47,0,67" Foreground="White" HorizontalAlignment="Left" Width="46"/>
+        <Label x:Name="precioProducto" Content="0" Margin="369,47,0,68" Foreground="White" HorizontalAlignment="Left" Width="24"/>
+        <Label x:Name="estado" Content="." Margin="134,82,0,28" Foreground="White" HorizontalAlignment="Left" Width="193" FontSize="11"/>
     </Grid>
 </UserControl>

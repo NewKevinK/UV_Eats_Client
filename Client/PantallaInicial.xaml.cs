@@ -54,10 +54,11 @@ namespace UV_Eats_Client.Client
             cargarMenu();
             cargarProductos();
             cargarPedidos();
+            cargarCarrito();
             cargarFavoritos();
             cargarPedidosAsolicitar();
-            cargarCarrito();
-            cargarObjetos();
+            
+            //recargarElementos();
         }
         public PantallaInicial(Auth auth,string tipoUsuario)//Usuario Empleado
         {
@@ -73,16 +74,22 @@ namespace UV_Eats_Client.Client
             cargarMenu();
             cargarProductos();
             cargarPedidos();
+            cargarCarrito();
             cargarFavoritos();
             cargarPedidosAsolicitar();
-            cargarCarrito();
-            cargarObjetos();
+            //recargarElementos();
         }
 
 
-        private void cargarObjetos()
+        private void recargarElementos()
         {
-            
+            cargarMenu();
+            cargarProductos();
+            cargarPedidos();
+            cargarCarrito();
+            cargarFavoritos();
+            cargarPedidosAsolicitar();
+           
         }
 
         private void cargarCarrito()
@@ -127,28 +134,51 @@ namespace UV_Eats_Client.Client
         private void cargarPedidosAsolicitar()
         {
 
-            List<TarjetaProductosPedidos> listp = new List<TarjetaProductosPedidos>();
-            TarjetaProductosPedidos TarjetaConsultaProductos1;
+            dynamic respuestaCarro = API.GetToken("https://uveatsapi-production.up.railway.app/api/carro", token);
 
-            for (int i = 0; i < 10; i++)
-                listp.Add(TarjetaConsultaProductos1 = new TarjetaProductosPedidos());
+            dynamic idCarroProductoRespuesta = API.GetToken("https://uveatsapi-production.up.railway.app/api/carro/carroProducto/" + idUsuario, token);
+
+            List<CarroCompraProductos> productosPedidos = JsonConvert.DeserializeObject<List<CarroCompraProductos>>(idCarroProductoRespuesta.Content);
+
+
+            // dynamic imagenRespuestaProductos = API.GetNoToken("https://uveatsapi-production.up.railway.app/api/archivo/getProducto");
+            int preciosub = 0;
+
+            for (int i = 0; i < productosPedidos.Count; i++)
+            {
+
+                for (int z = 0; z < urlImagenProducto.Count; z++)
+                {
+                    if (productosPedidos[i].idProducto == urlImagenProducto[z].IdProducto)
+                    {
+                        productosPedidos[i].imagenProducto = urlImagenProducto[z].url;
+                    }
+                }
+                preciosub = preciosub + productosPedidos[i].precio;
+
+            }
+            List<TarjetaProductosPedidos> listp = new List<TarjetaProductosPedidos>();
+
+            TarjetaProductosPedidos TarjetaProductoTemp;
+
+            for (int i = 0; i < productosPedidos.Count; i++)
+                listp.Add(TarjetaProductoTemp = new TarjetaProductosPedidos(productosPedidos[i]));
 
             for (int i = 0; i < listp.Count; i++)
                 Warp_panel_Pedidos.Children.Add(listp[i]);
+
+            subtotalPedido.Content = preciosub;
         }
 
         private void cargarFavoritos()
         {
-            MessageBox.Show("Error 1");
+            
             dynamic respuestaProductosfav = API.GetToken("https://uveatsapi-production.up.railway.app/api/producto/getFav/"+idUsuario, token);
 
             List<ProductoID> productosFavoritos = JsonConvert.DeserializeObject<List<ProductoID>>(respuestaProductosfav.Content);
 
-            MessageBox.Show(productosFavoritos[0].idProducto+"Error 1" + productosFavoritos[1].idProducto);
-
             List<Producto> productosFavoritosSeleccionados = new List<Producto>();
 
-            MessageBox.Show("Error 11");
             for (int i = 0; i < productosFavoritos.Count; i++)
             {
                // MessageBox.Show("Error 122"+productosFavoritos.Count);
@@ -163,7 +193,7 @@ namespace UV_Eats_Client.Client
                     }
                 }
             }
-            MessageBox.Show("Error 144523");
+
             List<TarjetaPlatilloFavorito> listp = new List<TarjetaPlatilloFavorito>();
             TarjetaPlatilloFavorito TarjetaConsultaProductos1;
 
@@ -177,14 +207,24 @@ namespace UV_Eats_Client.Client
         private void cargarPedidos()
         {
 
-            dynamic respuestaProductos = API.GetToken("https://uveatsapi-production.up.railway.app/api/orden/ordenProducto", token);
-            dynamic imagenRespuestaProductos = API.GetNoToken("https://uveatsapi-production.up.railway.app/api/archivo/getProducto");
+            dynamic respuestaOrdenes = API.GetToken("https://uveatsapi-production.up.railway.app/api/orden/"+idUsuario, token);
+            List<Orden> OrdenesRecuperadas = JsonConvert.DeserializeObject<List<Orden>>(respuestaOrdenes.Content);
 
-            List<TarjetaProductosRealizados> listp = new List<TarjetaProductosRealizados>();
-            TarjetaProductosRealizados TarjetaConsultaProductos1;
+            MessageBox.Show("Error 122 " + OrdenesRecuperadas.Count);
 
-            for (int i = 0; i < 10; i++)
-                listp.Add(TarjetaConsultaProductos1 = new TarjetaProductosRealizados());
+            //dynamic productosOrdenes = API.GetToken("https://uveatsapi-production.up.railway.app/api/orden/ordenProducto" + OrdenesRecuperadas[].idOrden,token);
+
+            List<Orden> productosFavoritosSeleccionados = new List<Orden>();
+
+            List<TarjetaProductosPedidos> listp = new List<TarjetaProductosPedidos>();
+            MessageBox.Show("Error 122 1" + OrdenesRecuperadas[0].fecha);
+
+            TarjetaProductosPedidos TarjetaConsultaProductos1;
+
+            for (int i = 0; i < OrdenesRecuperadas.Count; i++)
+                listp.Add(TarjetaConsultaProductos1 = new TarjetaProductosPedidos(OrdenesRecuperadas[i]));
+
+            MessageBox.Show("Error 122 1" + OrdenesRecuperadas.Count);
 
             for (int i = 0; i < listp.Count; i++)
                 warpPanelPedidosRealizados.Children.Add(listp[i]);
