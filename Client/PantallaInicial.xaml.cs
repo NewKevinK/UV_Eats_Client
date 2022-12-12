@@ -19,6 +19,7 @@ using ControlzEx.Controls;
 using UV_Eats_Client.Client.UserControls;
 using UV_Eats_Client.Client.VentanasFlotantes;
 using MaterialDesignThemes.Wpf;
+using System.Security.Policy;
 
 namespace UV_Eats_Client.Client
 {
@@ -37,11 +38,9 @@ namespace UV_Eats_Client.Client
 
         public PantallaInicial(Auth auth)
         {
-            MessageBox.Show("CACA");
             token = auth.token;
             idUsuario = auth.id;
-            MessageBox.Show("CACA2");
-
+            
             InitializeComponent();
             DataContext = new MenuViewModel(token);
 
@@ -69,6 +68,8 @@ namespace UV_Eats_Client.Client
 
         private void cargarPedidosAsolicitar()
         {
+
+
             List<TarjetaProductosPedidos> listp = new List<TarjetaProductosPedidos>();
             TarjetaProductosPedidos TarjetaConsultaProductos1;
 
@@ -106,14 +107,33 @@ namespace UV_Eats_Client.Client
 
         private void cargarProductos()
         {
+            //MessageBox.Show("Inicio de sesion exitoso1");
+            dynamic respuestaCategoria= API.GetToken("https://uveatsapi-production.up.railway.app/api/categoria", token);
+            //MessageBox.Show("Inicio de sesion exitoso2");
+            dynamic imagenRespuesta = API.GetNoToken("https://uveatsapi-production.up.railway.app/api/archivo/getCategoria");
+            //MessageBox.Show("Inicio de sesion exitoso3");
+           // dynamic respuestaProductos = API.GetToken("https://uveatsapi-production.up.railway.app/api/producto", token);
+
+           // dynamic imagenRespuestaProductos = API.GetNoToken("https://uveatsapi-production.up.railway.app/api/archivo/getProducto");
+
+            List<categoriaImagen> urlImagen = JsonConvert.DeserializeObject<List<categoriaImagen>>(imagenRespuesta.Content);
+            
+            List<Categorias> categoriaJson = JsonConvert.DeserializeObject<List<Categorias>>(respuestaCategoria.Content);
+            
+            for (int i = 0; i < categoriaJson.Count; i++)
+            {
+                categoriaJson[i].imagenCategoria = urlImagen[i].url;
+            }
+
+
             List<CategoriaProducto> listp = new List<CategoriaProducto>();
             List<TarjetaProducto> list = new List<TarjetaProducto>();
             CategoriaProducto TarjetaProductoTemp;
             TarjetaProducto TarjetaConsultaProductos1;
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < categoriaJson.Count; i++)
             {
-                listp.Add(TarjetaProductoTemp = new CategoriaProducto());
+                listp.Add(TarjetaProductoTemp = new CategoriaProducto(categoriaJson[i]));
                 list.Add(TarjetaConsultaProductos1 = new TarjetaProducto());
             }
 

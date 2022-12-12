@@ -94,7 +94,7 @@
                     FontSize="24"
                     Foreground="#FFC871DC"
                     Margin="148,10,148,309"><Run Language="es-mx" Text="Registrar Categoria"/></TextBlock>
-                <Button Content="Button" HorizontalAlignment="Center" Margin="0,113,0,0" VerticalAlignment="Top" Height="128" Width="306" Cursor="Hand" Foreground="{x:Null}" BorderBrush="#FF380A5A">
+                <Button Content="Button" HorizontalAlignment="Center" Margin="0,113,0,0" VerticalAlignment="Top" Height="128" Width="306" Cursor="Hand" Foreground="{x:Null}" BorderBrush="#FF380A5A" Click="subirImagen">
                     <Button.Background>
                         <ImageBrush ImageSource="/Client/Resources/cargarImagen.png" Stretch="Uniform"/>
                     </Button.Background>

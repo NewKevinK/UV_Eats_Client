@@ -94,7 +94,7 @@
                     FontSize="24"
                     Foreground="#FFC871DC"
                     Margin="148,10,135,309"><Run Language="es-mx" Text="Modificar Categorias"/></TextBlock>
-                <Button Content="Button" HorizontalAlignment="Left" Margin="36,143,0,0" VerticalAlignment="Top" Height="115" Width="146" Cursor="Hand" Foreground="{x:Null}" BorderBrush="#FF380A5A">
+                <Button Content="Button" HorizontalAlignment="Left" Margin="36,143,0,0" VerticalAlignment="Top" Height="115" Width="146" Cursor="Hand" Foreground="{x:Null}" BorderBrush="#FF380A5A" Click="subirImagen">
                     <Button.Background>
                         <ImageBrush ImageSource="/Client/Resources/cargarImagen.png" Stretch="Uniform"/>
                     </Button.Background>

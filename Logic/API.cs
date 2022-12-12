@@ -122,6 +122,22 @@ namespace UV_Eats_Client.Logic
                 return null;
             }
         }
+        public dynamic GetNoToken(string url)
+        {
+            try
+            {
+                var client = new RestClient(url);
+                var request = new RestRequest();
+                request.AddHeader("Content-Type", "application/json");
+                RestResponse response = client.Execute(request);
+
+                return response;
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
+        }
 
         public dynamic DeleteToken(string url, string token)
         {

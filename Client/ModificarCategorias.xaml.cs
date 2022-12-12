@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -55,6 +56,20 @@ namespace UV_Eats_Client.Client
         private void ActualizarCategoria(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void subirImagen(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            bool? response = openFileDialog.ShowDialog();
+
+            if (response == true)
+            {
+                string filepath = openFileDialog.FileName;
+                MessageBox.Show(filepath);
+
+            }
         }
     }
 }

@@ -52,14 +52,13 @@ namespace UV_Eats_Client.Client
 
                 if (auth.message == "authenticated user")
                {
-                    MessageBox.Show("CACA");
                     PantallaInicial pantallaInicial = new PantallaInicial(auth);
                     pantallaInicial.Show();
                     //Application.Current.Shutdown();
                     this.Hide();
                 }
                 //MessageBox.Show("El mensaje es: " + auth.message);
-                //MssageBox.Show(respuesta.ToString());
+                //MessageBox.Show("Inicio de sesion exitoso");
             }
             catch (Exception ex)
             {

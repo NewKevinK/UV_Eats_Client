@@ -94,7 +94,7 @@
                     FontSize="24"
                     Foreground="#FFC871DC"
                     Margin="10,5,286,314"><Run Language="es-mx" Text="Registrar Producto"/></TextBlock>
-                <Button Content="Button" HorizontalAlignment="Left" Margin="345,0,0,0" VerticalAlignment="Center" Height="106" Width="132" Cursor="Hand" Foreground="{x:Null}" BorderBrush="#FF380A5A">
+                <Button Content="Button" HorizontalAlignment="Left" Margin="345,0,0,0" VerticalAlignment="Center" Height="106" Width="132" Cursor="Hand" Foreground="{x:Null}" BorderBrush="#FF380A5A" Click="subirimagen">
                     <Button.Background>
                         <ImageBrush ImageSource="/Client/Resources/cargarImagen.png" Stretch="Uniform"/>
                     </Button.Background>
