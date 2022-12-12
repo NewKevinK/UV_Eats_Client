@@ -39,7 +39,7 @@
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
-                
+
         </Button>
 
         <Button x:Name="btnLogout"  HorizontalAlignment="Left" Margin="724,28,0,0" 
@@ -210,7 +210,21 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Quejas">
-                <Label Content="Content goes here..." />
+                <Grid>
+                    <Label Content="Content goes here..." />
+                    <TextBlock Text="Buzon de sugerencias"
+                           FontSize="25"
+                           Foreground="White" Margin="92,24,425,238" Cursor="Hand"></TextBlock>
+                    <TextBox AcceptsReturn="True" TextWrapping="Wrap" Height="129" VerticalAlignment="Top" Margin="62,85,90,0" Background="Gray" />
+                    <Button x:Name="btnS" Margin="234,281,234,10" Height="32" Width="313"
+                            Content="Siguiente"
+                            Foreground="White"
+                            Background="#1D0726"
+                            BorderBrush="Transparent" Click="btnS_Click"/>
+                    
+                </Grid>
+
+
             </TabItem>
             <TabItem Header="Proceder al pedido" Visibility="Collapsed">
                 <Grid Margin="0,10,0,0">
@@ -257,10 +271,10 @@
             </TabItem>
         </TabControl>
         <Grid x:Name="gripOpciones" Margin="86,44,49,36" Visibility="Visible">
-            
+
         </Grid>
         <Grid x:Name="gridCalificar" Margin="0,10,10,0" Visibility="Collapsed">
-            
+
         </Grid>
     </Grid>
 </Window>

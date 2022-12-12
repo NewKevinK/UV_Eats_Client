@@ -376,5 +376,9 @@ namespace UV_Eats_Client.Client
             Application.Current.Shutdown();
         }
 
+        private void btnS_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
