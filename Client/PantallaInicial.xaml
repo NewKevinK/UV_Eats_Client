@@ -1,4 +1,4 @@
-﻿<Window x:Class="UV_Eats_Client.Client.PantallaInicial"
+﻿<Window xmlns:VentanasFlotantes="clr-namespace:UV_Eats_Client.Client.VentanasFlotantes"  x:Class="UV_Eats_Client.Client.PantallaInicial"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -12,12 +12,10 @@
     </Window.Resources>
     <Grid Background="#2E0640">
         <Label Content="UV Eats" Margin="122,18,0,0" FontSize="50" Foreground="White" FontFamily="Segoe UI Black" FontWeight="Normal" FontStyle="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Top" HorizontalAlignment="Left" Height="80" />
-        <Image Source="/Client/Resources/HalconCirculo.png" Margin="5,-1,665,311" />
-
-
-        <Button x:Name="btnShowCar"  HorizontalAlignment="Left" Margin="586,28,0,0" 
+        <Image Source="/Client/Resources/HalconCirculo.png" Margin="0,-1,629,304" />
+        <Button x:Name="btnShowCar"  HorizontalAlignment="Left" Margin="640,24,0,0" 
                 VerticalAlignment="Top" Background="White"  
-                Click="btnShowCarClick" Height="50" Width="50" Cursor="Hand"   >
+                Click="btnShowCarClick" Height="61" Width="59" Cursor="Hand"   >
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
@@ -27,12 +25,11 @@
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
-
         </Button>
 
-        <Button x:Name="btnShowProfile"  HorizontalAlignment="Left" Margin="656,28,0,0" 
+        <Button x:Name="btnShowProfile"  HorizontalAlignment="Left" Margin="556,24,0,0" 
                 VerticalAlignment="Top" Background="White"  
-                Click="btnShowProfileClick" Height="50" Width="50" Cursor="Hand"   >
+                Click="btnShowProfileClick" Height="61" Width="62" Cursor="Hand"   >
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
@@ -42,12 +39,12 @@
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
-
+                
         </Button>
 
-        <Button x:Name="btnLogout"  HorizontalAlignment="Left" Margin="728,28,0,0" 
+        <Button x:Name="btnLogout"  HorizontalAlignment="Left" Margin="724,28,0,0" 
                 VerticalAlignment="Top" Background="White"  
-                Click="btnLogoutClick" Height="50" Width="50" Cursor="Hand"   >
+                Click="btnLogoutClick" Height="57" Width="54" Cursor="Hand"   >
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
@@ -59,9 +56,6 @@
             </Button.Template>
 
         </Button>
-
-
-
 
         <TabControl x:Name="tabControManager" Margin="10,90,10,0" BorderBrush="Gainsboro">
             <TabControl.Resources>
@@ -90,7 +84,6 @@
                 </Style>
             </TabControl.Resources>
             <TabItem Header="Menu">
-
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="26" />
@@ -107,7 +100,6 @@
                         <Image Height="54" Stretch="Fill" Width="50"  Source="/Client/Resources/email.png" />
 
                     </Button>  -->
-
                     <WPFCarouselControl:CarouselControl
                                             x:Name="_carouselDABMenu"
                                             ItemsSource="{Binding MenuDAB}"
@@ -168,59 +160,107 @@
                             </Style>
                         </WPFCarouselControl:CarouselControl.Style>
                     </WPFCarouselControl:CarouselControl>
-
-
                 </Grid>
             </TabItem>
             <TabItem Header="Productos" >
-
+                <Grid>
+                    <Grid Margin="3,0,3,208" Width="774" >
+                        <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderBrush="#FFFDFDFD">
+                            <ScrollViewer.Background>
+                                <SolidColorBrush Color="White" Opacity="0.2"/>
+                            </ScrollViewer.Background>
+                            <WrapPanel x:Name="warp_categorias_productos"/>
+                        </ScrollViewer>
+                    </Grid>
+                    <Grid Margin="3,115,3,0">
+                        <ScrollViewer Margin="0,0,0,10">
+                            <StackPanel Width="774">
+                                <WrapPanel x:Name="wrapPanelProductos" HorizontalAlignment="Left"/>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Grid>
+                </Grid>
             </TabItem>
-
-
             <TabItem Header="Pedidos" >
-
-                //
-
-            </TabItem>
-
-
-            <TabItem Header="Quejas">
-                <Label Content="Content goes here..." />
-            </TabItem>
-
-            <TabItem x:Name="tabCarrito" Header="Carrito" Visibility="Visible">
                 <Grid Margin="0,10,0,0">
                     <Grid.Background>
                         <SolidColorBrush Color="#FF761F7B" Opacity="0.52"/>
                     </Grid.Background>
                     <Grid>
-                        <TextBlock x:Name="labeltitulo" Text="Carrito de compra" FontSize="22" Foreground="White" Margin="10,-1,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="LabelTituloProductos" Text="Mis pedidos realizados" FontSize="36" Foreground="White" Margin="10,-1,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="45" Width="420"/>
+                        <TextBlock x:Name="LabelTituloLsitaproductos" Text="Lista de pedidos" FontSize="16" Foreground="White" Margin="10,47,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="21" Width="289"/>
                     </Grid>
-                    <Grid Margin="547,37,22,40" Background="#FF631888">
-                        <Label Content="Subtotal: $" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="92"/>
-                        <Button Content="Proceder a pago" HorizontalAlignment="Center" Margin="0,65,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Cursor="Hand"/>
-                        <Button Content="Borrar elementos selecionados" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="White" Background="#FFE52CF9" Height="46" Width="190" FontSize="11"/>
-                        <Label Content="0" HorizontalAlignment="Left" Margin="93,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="80"/>
-                    </Grid>
-                    <ScrollViewer Margin="12,37,256,10">
-                        <StackPanel>
-                            <WrapPanel x:Name="warpanle_prueb" HorizontalAlignment="Left"/>
+                    <ScrollViewer Margin="12,74,10,10">
+                        <StackPanel Width="758">
+                            <WrapPanel x:Name="warpPanelPedidosRealizados" HorizontalAlignment="Left"/>
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>
             </TabItem>
-            <TabItem Header="Informacion Perfil" Visibility="Collapsed">
+            <TabItem Header="Favoritos" Visibility="Collapsed">
                 <Grid>
                     <Grid>
                         <TextBlock x:Name="labelTituloFav" Text="Platillos Favoritos" FontSize="36" Foreground="White" Margin="10,-1,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="44" Width="295"/>
                     </Grid>
-                    <ScrollViewer Margin="12,66,39,10">
-                        <StackPanel>
+                    <ScrollViewer Margin="12,66,10,10">
+                        <StackPanel Width="758">
                             <WrapPanel x:Name="warpanle_platillosFav" HorizontalAlignment="Left"/>
                         </StackPanel>
                     </ScrollViewer>
                 </Grid>
             </TabItem>
+            <TabItem Header="Quejas">
+                <Label Content="Content goes here..." />
+            </TabItem>
+            <TabItem Header="Proceder al pedido" Visibility="Collapsed">
+                <Grid Margin="0,10,0,0">
+                    <Grid.Background>
+                        <SolidColorBrush Color="#FF761F7B" Opacity="0.275"/>
+                    </Grid.Background>
+                    <Grid>
+                        <TextBlock x:Name="labeltitulo" Text="Proceder al pedido" FontSize="22" Foreground="White" Margin="10,-1,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="labeltituloLista" Text="Lista de productos" FontSize="18" Foreground="White" Margin="10,28,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    </Grid>
+                    <Grid Margin="547,37,22,40" Background="#FF631888">
+                        <Label Content="Subtotal: $" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="92"/>
+                        <Button Content="Realizar pedido" HorizontalAlignment="Center" Margin="0,65,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Cursor="Hand"/>
+                        <Button Content="Cancelar pedido" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="White" Background="#FFE52CF9" Height="46" Width="190" FontSize="16"/>
+                        <Label Content="0" HorizontalAlignment="Left" Margin="93,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="80"/>
+                    </Grid>
+                    <ScrollViewer Margin="12,63,256,10">
+                        <StackPanel Width="512">
+                            <WrapPanel x:Name="Warp_panel_Pedidos" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Carrito" Visibility="Collapsed">
+                <Grid Margin="0,10,0,0">
+                    <Grid.Background>
+                        <SolidColorBrush Color="#FF761F7B" Opacity="0.52"/>
+                    </Grid.Background>
+                    <Grid>
+                        <TextBlock x:Name="LabelTituloPedidos" Text="Carrito de compra" FontSize="22" Foreground="White" Margin="10,-1,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    </Grid>
+                    <Grid Margin="547,37,22,40" Background="#FF631888">
+                        <Label Content="Subtotal: $" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="92"/>
+                        <Button Content="Proceder a pago" HorizontalAlignment="Center" Margin="0,65,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Cursor="Hand"/>
+                        <Button Content="Eliminar seleccion" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="White" Background="#FFE52CF9" Height="48" Width="190" FontSize="16"/>
+                        <Label Content="0" HorizontalAlignment="Left" Margin="93,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="80"/>
+                    </Grid>
+                    <ScrollViewer Margin="12,37,256,10">
+                        <StackPanel>
+                            <WrapPanel x:Name="warp_panel_Carritos" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
         </TabControl>
+        <Grid x:Name="gripOpciones" Margin="294,44,244,43" Visibility="Collapsed">
+            
+        </Grid>
+        <Grid x:Name="gridCalificar" Margin="0,10,10,0" Visibility="Collapsed">
+            
+        </Grid>
     </Grid>
 </Window>

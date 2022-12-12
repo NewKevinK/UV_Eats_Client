@@ -116,7 +116,7 @@
                             Content="Cancelar"
                             Foreground="White"
                             Background="#1D0726"
-                            BorderBrush="Transparent" Click="btnCerrar_Click" Cursor="Hand"/>
+                            BorderBrush="Transparent" Click="btnCancelar_Click" Cursor="Hand"/>
                     <Button x:Name="btnNuevoUsuario" Height="32" Width="314"
                             Content="Registrarse"
                             Foreground="#1D0726"

@@ -141,6 +141,7 @@
 
             </TabItem>
             <TabItem Header="Pedidos" >
+                
             </TabItem>
             <TabItem Header="Sobre nosotros">
                 <Label Content="Content goes here..." />

@@ -62,7 +62,7 @@
                     Grid.Column="2"
                     BorderThickness="0"
                     Cursor="Hand"
-                    Click="btnCerrar_Click"/>
+                    Click="btnCerrar_Click" Height="32" VerticalAlignment="Top"/>
                 </Grid>
 
 
@@ -115,27 +115,12 @@
                             Content="Recuperar Contrasenia"
                             Foreground="#1D0726"
                             Background="Transparent"
-                            BorderBrush="Transparent" HorizontalAlignment="Center" FontSize="12" Cursor="Hand"/>
+                            BorderBrush="Transparent" HorizontalAlignment="Center" FontSize="12" Cursor="Hand" Click="btnRecuperar_Click"/>
                     <Button x:Name="btnSiguiente" Margin="0,20,0,0" Height="32" Width="313"
                             Content="Siguiente"
                             Foreground="White"
                             Background="#1D0726"
                             BorderBrush="Transparent" Click="btnSiguiente_Click"/>
-                    <Button x:Name="btnNuevoUsuario" Margin="00,10,0,0" Height="26" Width="98"
-                            Content="Registrate"
-                            Foreground="#1D0726"
-                            Background="Transparent"
-                            BorderBrush="Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Cursor="Hand" Click="btnNuevoUsuario_Click" RenderTransformOrigin="0.5,0.5">
-                        <Button.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform Angle="0.15"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Button.RenderTransform>
-                    </Button>
-                    <materialDesign:Badged Content="Badged"/>
 
 
 

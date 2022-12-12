@@ -1,16 +1,18 @@
-﻿<Window x:Class="UV_Eats_Client.Client.VentanasFlotantes.CalificarProducto"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UV_Eats_Client.Client.VentanasFlotantes"
-        mc:Ignorable="d"
-        Title="CalificarProducto" Height="243" Width="571">
-    <Grid Background="#FF2D0027">
-        <Button Content="Dislike" HorizontalAlignment="Right" Margin="0,70,367,125" Background="White" Width="90"/>
-        <Button Content="Like" HorizontalAlignment="Right" Margin="0,70,109,125" Background="White" Width="90"/>
-        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="83,175,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="139"/>
-        <Button Content="Confirmar" HorizontalAlignment="Left" Margin="348,175,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="138"/>
-
+﻿<UserControl x:Class="UV_Eats_Client.Client.VentanasFlotantes.CalificarProducto"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UV_Eats_Client.Client.VentanasFlotantes"
+             mc:Ignorable="d" Height="433" Width="681">
+    <UserControl.Background>
+        <SolidColorBrush Color="White" Opacity="0.25"/>
+    </UserControl.Background>
+    <Grid Background="#FF2D0027" Margin="79,75,83,68">
+        <Button x:Name="butdislike" Content="Dislike" Margin="78,117,357,141" Click="dislike" FontSize="18" Cursor="Hand"/>
+        <Button x:Name="bulike" Content="Like" Margin="341,120,87,141" Click="like" FontSize="18"/>
+        <Button Content="Cancelar" HorizontalAlignment="Left" Margin="42,236,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="157" Click="btcancelar" FontSize="16"/>
+        <Button Content="Confirmar" HorizontalAlignment="Left" Margin="310,236,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Width="158" Click="btconfirmar" FontSize="16"/>
+        <TextBlock x:Name="LabelCalificar" Text="Califica el producto" FontSize="36" Foreground="White" Margin="0,25,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="45" Width="310"/>
     </Grid>
-</Window>
+</UserControl>

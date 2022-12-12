@@ -33,32 +33,6 @@ namespace UV_Eats_Client.Client
                 DragMove();
             }
         }
-
-        private void btnMinimizar_Click(object sender, RoutedEventArgs e)
-        {
-            WindowState = WindowState.Minimized;
-        }
-
-        private void btnCerrar_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ButtonBase_OnClickAce(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btnSiguiente_Click(object sender, RoutedEventArgs e)
         {
             Usuario usuario = new Usuario
@@ -69,28 +43,23 @@ namespace UV_Eats_Client.Client
             };
 
 
-
-            
             string objectU = JsonConvert.SerializeObject(usuario);
-            string json = @"{ ""email"":""moncayok0@gmail.com"", 
-" + "\n" +
-@"""password"":""kevin1""
-" + "\n" +
-@"}";
+            string json = @"{ ""email"":""moncayok0@gmail.com"", " + "\n" +@"""password"":""kevin1""" + "\n" +@"}";
             try
             {
-                dynamic respuesta = API.PostNoToken("http://localhost:1999/api/auth/", json);
+                dynamic respuesta = API.PostNoToken("https://uveatsapi-production.up.railway.app/api/auth", json);
                 Auth auth = JsonConvert.DeserializeObject<Auth>(respuesta.Content);
 
                 if (auth.message == "authenticated user")
-                {
+               {
+                    MessageBox.Show("CACA");
                     PantallaInicial pantallaInicial = new PantallaInicial(auth);
                     pantallaInicial.Show();
                     //Application.Current.Shutdown();
                     this.Hide();
                 }
                 //MessageBox.Show("El mensaje es: " + auth.message);
-                //MessageBox.Show(respuesta.ToString());
+                //MssageBox.Show(respuesta.ToString());
             }
             catch (Exception ex)
             {
@@ -99,9 +68,21 @@ namespace UV_Eats_Client.Client
             
         }
 
-        private void btnNuevoUsuario_Click(object sender, RoutedEventArgs e)
+        private void btnRecuperar_Click(object sender, RoutedEventArgs e)
         {
+            RecuperarContrasenia pantallaRecuperarContrasenia = new RecuperarContrasenia();
+            pantallaRecuperarContrasenia.Show();
+            this.Hide();
+        }
 
+        private void btnMinimizar_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Maximized;
+        }
+
+        private void btnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 

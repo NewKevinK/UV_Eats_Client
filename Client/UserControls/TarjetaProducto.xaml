@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="UV_Eats_Client.Client.UserControls.TarjetaProducto"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UV_Eats_Client.Client.UserControls"
+             mc:Ignorable="d" Height="115" Width="370" >
+    <Grid Margin="5,5,5,5">
+        <Grid.Background>
+            <SolidColorBrush Color="#FF781A96" Opacity="0.5"/>
+        </Grid.Background>
+        <Image Margin="5,10,290,28" Source="/Client/Resources/cart.png"/>
+        <Label Content="Orden de empanadas" Margin="76,0,0,66" Foreground="#FFFFF6F6" HorizontalAlignment="Left" Width="171" FontWeight="Bold"/>
+        <Label Content="Orden de 3 empanadas ya sean de pollo, papa o frijol " Margin="76,26,0,24" Foreground="White" HorizontalAlignment="Left" Width="171" FontSize="9"/>
+        <Label Content="0" Margin="28,76,0,11" Foreground="White" HorizontalAlignment="Left" Width="14" FontSize="9"/>
+        <Button Content="Agregar al carrito" Margin="252,24,5,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Height="22" FontSize="9" Cursor="Hand"/>
+        <Button Content="Ordenar ya" Margin="262,59,15,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FF2E0633" Height="22" FontSize="10" Cursor="Hand"/>
+        <Label Content="Precio:" Margin="83,75,0,11" Foreground="White" HorizontalAlignment="Left" Width="48" FontSize="10"/>
+        <Label Content="0" Margin="116,76,0,8" Foreground="White" HorizontalAlignment="Left" Width="20" FontSize="9"/>
+        <Image HorizontalAlignment="Left" Height="18" Margin="10,80,0,0" VerticalAlignment="Top" Width="18" Source="/Client/Resources/dislike.png"/>
+        <Image HorizontalAlignment="Left" Height="15" Margin="52,80,0,0" VerticalAlignment="Top" Width="18" Source="/Client/Resources/like.png"/>
+        <Label Content="0" Margin="67,77,0,10" Foreground="White" HorizontalAlignment="Left" Width="16" FontSize="8"/>
+    </Grid>
+</UserControl>

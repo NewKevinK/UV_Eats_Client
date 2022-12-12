@@ -133,11 +133,25 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Productos" >
-                <Grid Margin="0,0,0,51" Width="774" >
-                    <ScrollViewer HorizontalScrollBarVisibility="Visible" CanContentScroll="True">
-                        <WrapPanel x:Name="warp_categorias" Width="774" Orientation="Horizontal" Height="73"/>
-                    </ScrollViewer>
+                <Grid>
+                    <Grid Margin="0,0,0,193" Width="774" >
+                        <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Visible" BorderBrush="#FFFDFDFD" Margin="0,0,0,22">
+                            <ScrollViewer.Background>
+                                <SolidColorBrush Color="White" Opacity="0.2"/>
+                            </ScrollViewer.Background>
+                            <WrapPanel x:Name="warp_categorias_productos"/>
+                        </ScrollViewer>
+                    </Grid>
+                    <Grid Margin="3,120,10,0">
+                        <ScrollViewer Margin="12,10,10,10">
+                            <StackPanel Width="742">
+                                <WrapPanel x:Name="wrapPanelProductos" HorizontalAlignment="Left"/>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Grid>
                 </Grid>
+
+
 
             </TabItem>
             <TabItem Header="Pedidos" >

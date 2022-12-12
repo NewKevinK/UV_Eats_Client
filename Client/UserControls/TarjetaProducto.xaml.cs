@@ -16,9 +16,9 @@ namespace UV_Eats_Client.Client.UserControls
     /// <summary>
     /// Lógica de interacción para TarjetaPlatilloFavorito.xaml
     /// </summary>
-    public partial class TarjetaProductosPedidos : UserControl
+    public partial class TarjetaProducto : UserControl
     {
-        public TarjetaProductosPedidos()
+        public TarjetaProducto()
         {
             InitializeComponent();
             

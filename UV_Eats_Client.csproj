@@ -19,8 +19,8 @@
     <PackageReference Include="MaterialDesignColors" Version="2.0.9" />
     <PackageReference Include="MaterialDesignThemes" Version="4.6.1" />
     <PackageReference Include="MaterialDesignThemes.MahApps" Version="0.2.5" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="108.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="108.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -55,19 +55,16 @@
     <Compile Update="Client\UserControls\TarjetaConsultaPedidos.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Client\UserControls\TarjetaProducto.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Client\UserControls\TarjetaProductosRealizados.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Client\UserControls\TarjetaProductosPedidos.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Client\UserControls\TarjetaProductoMenu.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Client\xamlPruebas\ProcederAlPedido.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Client\xamlPruebas\VentanaPedidosRealizados.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Client\xamlPruebas\VentanaProductos.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
@@ -144,23 +141,19 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Client\UserControls\TarjetaProducto.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Client\UserControls\TarjetaProductosRealizados.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Client\UserControls\TarjetaProductosPedidos.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Client\UserControls\TarjetaProductoMenu.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Client\xamlPruebas\ProcederAlPedido.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Client\xamlPruebas\VentanaPedidosRealizados.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Client\xamlPruebas\VentanaProductos.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

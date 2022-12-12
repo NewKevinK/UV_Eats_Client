@@ -28,14 +28,23 @@ namespace UV_Eats_Client.Client
             CategoriaProducto tarjetaProduct4 = new CategoriaProducto();
 
             List<CategoriaProducto> listp = new List<CategoriaProducto>();
-
+            List<TarjetaConsultaProductos> list = new List<TarjetaConsultaProductos>();
             CategoriaProducto TarjetaProductoTemp;
+            TarjetaConsultaProductos TarjetaConsultaProductos1;
 
             for (int i = 0; i < 10; i++)
+            {
                 listp.Add(TarjetaProductoTemp = new CategoriaProducto());
+                list.Add(TarjetaConsultaProductos1 = new TarjetaConsultaProductos());
+            }
+                
 
             for (int i = 0; i < listp.Count; i++)
-                warp_categorias.Children.Add(listp[i]);
+            {
+                warp_categorias_productos.Children.Add(listp[i]);
+                wrapPanelProductos.Children.Add(list[i]);
+            }
+                
 
 
 

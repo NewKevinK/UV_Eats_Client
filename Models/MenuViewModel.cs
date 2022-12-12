@@ -18,7 +18,7 @@ namespace UV_Eats_Client.Models
         {
             MenuDAB = new ObservableCollection<Menu>();
             // string tkn = pantallaInicial.TokenMenu();
-            dynamic respuestaMenu = API.GetToken("http://localhost:1999/api/Menu/", token);
+            dynamic respuestaMenu = API.GetToken("https://uveatsapi-production.up.railway.app/api/Menu/", token);
             List<Menu> menuJson = JsonConvert.DeserializeObject<List<Menu>>(respuestaMenu.Content);
             for (int i=0; i < menuJson.Count; i++) {
                 //MenuDAB.Add(new Menu() menuJson[i]);

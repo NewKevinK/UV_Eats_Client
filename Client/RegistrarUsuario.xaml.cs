@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UV_Eats_Client.Models;
 
 namespace UV_Eats_Client.Client
 {
@@ -24,7 +25,7 @@ namespace UV_Eats_Client.Client
 
         private void btnMinimizar_Click(object sender, RoutedEventArgs e)
         {
-            WindowState = WindowState.Minimized;
+            WindowState = WindowState.Maximized;
         }
 
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
@@ -34,8 +35,16 @@ namespace UV_Eats_Client.Client
 
         private void btnNuevoUsuario_Click(object sender, RoutedEventArgs e)
         {
-
+            string usuario="USER_PRUEBA";
+            MessageBox.Show("Usuario Registrado con exito: "+usuario+"\n Ingresado a la base de datos");
+            //PantallaInicial pantallaInicial = new PantallaInicial();
+            //pantallaInicial.Show();
         }
 
+        private void btnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            //PantallaInicial pantallaInicial = new PantallaInicial();
+            //pantallaInicial.Show();
+        }
     }
 }
