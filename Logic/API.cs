@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using UV_Eats_Client.Models;
 using RestSharp.Authenticators;
+using Newtonsoft.Json.Linq;
 
 namespace UV_Eats_Client.Logic
 {
@@ -79,14 +80,14 @@ namespace UV_Eats_Client.Logic
             
         }
 
-        public dynamic PostToken(string url, string body, string autorizacion = null)
+        public dynamic PostToken(string url, string body, string autorizacion)
         {
             try
             {
                 var client = new RestClient(url);
                 //var authenticator = new JwtAuthenticator(autorizacion);
                 var request = new RestRequest();
-                request.AddHeader("Content-Type", "application/json");
+                request.AddHeader("Authorization", autorizacion);
                 request.AddParameter("application/json", body, ParameterType.RequestBody);
 
                 if (autorizacion != null)
