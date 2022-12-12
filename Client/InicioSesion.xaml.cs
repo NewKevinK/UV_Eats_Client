@@ -47,7 +47,7 @@ namespace UV_Eats_Client.Client
             string json = @"{ ""email"":""moncayok0@gmail.com"", " + "\n" +@"""password"":""kevin1""" + "\n" +@"}";
             try
             {
-                dynamic respuesta = API.PostNoToken("https://uveatsapi-production.up.railway.app/api/auth", json);
+                dynamic respuesta = API.PostNoToken("https://uveatsapi-production.up.railway.app/api/auth", objectU);
                 Auth auth = JsonConvert.DeserializeObject<Auth>(respuesta.Content);
 
                 if (auth.message == "authenticated user")

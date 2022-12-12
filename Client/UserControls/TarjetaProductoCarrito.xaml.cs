@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UV_Eats_Client.Models;
 
 namespace UV_Eats_Client.Client.UserControls
 {
@@ -18,6 +19,16 @@ namespace UV_Eats_Client.Client.UserControls
     /// </summary>
     public partial class TarjetaProductoCarrito : UserControl
     {
+        public TarjetaProductoCarrito(CarroCompraProductos carroProductosI)
+        {
+            InitializeComponent();
+            labelnombreProducto.Content = carroProductosI.producto;
+            cantidadProducto.Content = carroProductosI.cantidad;
+            precioProducto.Content = carroProductosI.precio;
+
+            Uri fileUri = new Uri(carroProductosI.imagenProducto);
+            imagenProducto.Source = new BitmapImage(fileUri);
+        }
         public TarjetaProductoCarrito()
         {
             InitializeComponent();

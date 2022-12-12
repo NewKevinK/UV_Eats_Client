@@ -10,14 +10,14 @@
         <Grid.Background>
             <SolidColorBrush Color="#FF781A96" Opacity="0.5"/>
         </Grid.Background>
-        <Image Margin="64,26,307,26" Source="/Client/Resources/cart.png"/>
-        <Label Content="Orden de empenadas" Margin="154,26,107,55" Foreground="#FFFFF6F6" FontSize="16"/>
-        <Label Content="Cantidad: $" HorizontalAlignment="Left" Margin="154,54,0,28" Foreground="White"/>
-        <Label Content="0" HorizontalAlignment="Left" Margin="220,51,0,30" Width="18" Foreground="White" FontSize="16"/>
+        <Image x:Name="imagenProducto" Margin="64,26,307,26" Source="/Client/Resources/cart.png"/>
+        <Label x:Name="labelnombreProducto" Content="Orden de empenadas" Margin="154,26,107,55" Foreground="#FFFFF6F6" FontSize="16"/>
+        <Label Content="Cantidad: " HorizontalAlignment="Left" Margin="154,54,0,28" Foreground="White"/>
+        <Label x:Name="cantidadProducto" Content="0" HorizontalAlignment="Left" Margin="220,51,0,30" Width="18" Foreground="White" FontSize="16"/>
         <Label Content="Precio: $" Margin="333,0,53,0" VerticalAlignment="Center" Foreground="White"/>
-        <Label Content="0" Margin="387,40,30,36" FontSize="16" Foreground="White"/>
+        <Label x:Name="precioProducto" Content="0" Margin="387,40,10,36" FontSize="16" Foreground="White"/>
         <Rectangle HorizontalAlignment="Left" Height="26" Margin="24,0,0,0" Stroke="Black" VerticalAlignment="Center" Width="26"/>
-        <CheckBox Content="" HorizontalAlignment="Left" Margin="29,0,0,0" VerticalAlignment="Center"/>
+        <CheckBox Content="" HorizontalAlignment="Left" Margin="26,0,0,0" VerticalAlignment="Center"/>
 
 
     </Grid>

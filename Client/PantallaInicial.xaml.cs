@@ -36,6 +36,7 @@ namespace UV_Eats_Client.Client
         int opciosc = 0;
         OpcionesExtras extras = new OpcionesExtras();
 
+        List<ProductoImagen> urlImagenProducto = new List<ProductoImagen>();
         public PantallaInicial(Auth auth)
         {
             token = auth.token;
@@ -63,7 +64,42 @@ namespace UV_Eats_Client.Client
 
         private void cargarCarrito()
         {
-            
+
+            dynamic respuestaCarro = API.GetToken("https://uveatsapi-production.up.railway.app/api/carro", token);
+
+            dynamic idCarroProductoRespuesta = API.GetToken("https://uveatsapi-production.up.railway.app/api/carro/carroProducto/"+idUsuario, token);
+
+            List<CarroCompraProductos> productosCarro = JsonConvert.DeserializeObject<List<CarroCompraProductos>>(idCarroProductoRespuesta.Content);
+
+
+            // dynamic imagenRespuestaProductos = API.GetNoToken("https://uveatsapi-production.up.railway.app/api/archivo/getProducto");
+            int preciosub=0;
+
+            //List<Categorias> JsonCategoria = JsonConvert.DeserializeObject<List<Categorias>>(respuestaCategoria.Content
+            for(int i = 0; i < productosCarro.Count; i++)
+            {
+                
+                for (int z = 0; z < urlImagenProducto.Count; z++)
+                {
+                    if(productosCarro[i].idProducto == urlImagenProducto[z].IdProducto)
+                    {
+                        productosCarro[i].imagenProducto = urlImagenProducto[z].url;
+                    }
+                }
+                preciosub = preciosub + productosCarro[i].precio;
+
+            }
+            List<TarjetaProductoCarrito> listp = new List<TarjetaProductoCarrito>();
+
+            TarjetaProductoCarrito TarjetaProductoTemp;
+
+            for (int i = 0; i < productosCarro.Count; i++)
+                listp.Add(TarjetaProductoTemp = new TarjetaProductoCarrito(productosCarro[i]));
+
+            for (int i = 0; i < listp.Count; i++)
+                warp_panel_Carritos.Children.Add(listp[i]);
+
+            labelsubtotal.Content = preciosub;
         }
 
         private void cargarPedidosAsolicitar()
@@ -94,7 +130,8 @@ namespace UV_Eats_Client.Client
 
         private void cargarPedidos()
         {
-            dynamic respuestaProductos = API.GetToken("https://uveatsapi-production.up.railway.app/api/orden", token);
+
+            dynamic respuestaProductos = API.GetToken("https://uveatsapi-production.up.railway.app/api/orden/getOrden", token);
             dynamic imagenRespuestaProductos = API.GetNoToken("https://uveatsapi-production.up.railway.app/api/archivo/getProducto");
 
             List<TarjetaProductosRealizados> listp = new List<TarjetaProductosRealizados>();
@@ -123,7 +160,7 @@ namespace UV_Eats_Client.Client
             List<Categorias> JsonCategoria = JsonConvert.DeserializeObject<List<Categorias>>(respuestaCategoria.Content);
 
 
-            List<ProductoImagen> urlImagenProducto = JsonConvert.DeserializeObject<List<ProductoImagen>>(imagenRespuestaProductos.Content);
+            urlImagenProducto = JsonConvert.DeserializeObject<List<ProductoImagen>>(imagenRespuestaProductos.Content);
             List<Producto> JsonProducto = JsonConvert.DeserializeObject<List<Producto>>(respuestaProductos.Content);
 
 
@@ -172,24 +209,6 @@ namespace UV_Eats_Client.Client
         {
             //dynamic respuesta = API.GetToken("http://localhost:1999/api/Menu/", token);
             //List<Menu> menu = JsonConvert.DeserializeObject<List<Menu>>(respuesta.Content);
-
-            List<TarjetaProductoCarrito> listp = new List<TarjetaProductoCarrito>();
-
-            TarjetaProductoCarrito TarjetaProductoTemp;
-
-            for (int i = 0; i < 3; i++)
-                listp.Add(TarjetaProductoTemp = new TarjetaProductoCarrito());
-
-            for (int i = 0; i < listp.Count; i++)
-                warp_panel_Carritos.Children.Add(listp[i]);
-            Producto producto = new Producto
-            {
-                nombre = "test",
-                descripcion = "siuuu",
-                precio = 20,
-                unidades = 50
-
-            };
             //string objectU = JsonConvert.SerializeObject(producto);
             //dynamic respu = API.PatchToken("http://localhost:1999/api/producto/", objectU, token );
 
