@@ -39,7 +39,7 @@
                     </Grid>
                 </ControlTemplate>
             </Button.Template>
-                
+
         </Button>
 
         <Button x:Name="btnLogout"  HorizontalAlignment="Left" Margin="724,28,0,0" 
@@ -210,7 +210,20 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Quejas">
-                <Label Content="Content goes here..." />
+
+                <Grid>
+
+                    <Label Content="Content goes here..." />
+                    <Button Content="Button" HorizontalAlignment="Left" Margin="374,182,0,0" VerticalAlignment="Top"/>
+
+
+
+                </Grid>
+
+
+
+
+
             </TabItem>
             <TabItem Header="Proceder al pedido" Visibility="Collapsed">
                 <Grid Margin="0,10,0,0">
@@ -224,7 +237,7 @@
                     <Grid Margin="547,37,22,40" Background="#FF631888">
                         <Label Content="Subtotal: $" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="92"/>
                         <Button Content="Realizar pedido" HorizontalAlignment="Center" Margin="0,65,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="#FFDEC8C8" Background="#FFDD23F1" Cursor="Hand"/>
-                        <Button Content="Cancelar pedido" HorizontalAlignment="Center" Margin="0,116,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="White" Background="#FFE52CF9" Height="46" Width="190" FontSize="16"/>
+                        <Button Content="Cancelar pedido" HorizontalAlignment="Left" Margin="12,116,0,0" VerticalAlignment="Top" Foreground="White" BorderBrush="White" Background="#FFE52CF9" Height="46" Width="190" FontSize="16"/>
                         <Label Content="0" HorizontalAlignment="Left" Margin="93,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="16" Width="80"/>
                     </Grid>
                     <ScrollViewer Margin="12,63,256,10">
@@ -257,10 +270,10 @@
             </TabItem>
         </TabControl>
         <Grid x:Name="gripOpciones" Margin="294,44,244,43" Visibility="Collapsed">
-            
+
         </Grid>
         <Grid x:Name="gridCalificar" Margin="0,10,10,0" Visibility="Collapsed">
-            
+
         </Grid>
     </Grid>
 </Window>
